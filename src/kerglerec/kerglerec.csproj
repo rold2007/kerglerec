@@ -14,6 +14,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <WarningsAsErrors />
+    <DocumentationFile>C:\Users\rold2\source\repos\kerglerec-git\src\kerglerec\Kerglerec.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
