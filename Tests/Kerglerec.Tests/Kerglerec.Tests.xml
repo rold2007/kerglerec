@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kerglerec.Tests</name>
+    </assembly>
+    <members>
+        <member name="T:Kerglerec.Tests.ProvinceTests">
+            <summary>
+            Contains tests for the Province class.
+            </summary>
+        </member>
+        <member name="M:Kerglerec.Tests.ProvinceTests.ConstructorTest">
+            <summary>
+            Test the Province constructor.
+            </summary>
+        </member>
+        <member name="M:Kerglerec.Tests.ProvinceTests.AddTest">
+            <summary>
+            Test the Province::Add() method.
+            </summary>
+        </member>
+    </members>
+</doc>

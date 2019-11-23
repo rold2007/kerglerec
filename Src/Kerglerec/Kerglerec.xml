@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kerglerec</name>
+    </assembly>
+    <members>
+        <member name="T:Kerglerec.Province">
+            <summary>
+            Manages the characteristics of a province.
+            </summary>
+        </member>
+        <member name="M:Kerglerec.Province.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Kerglerec.Province"/> class.
+            </summary>
+        </member>
+        <member name="P:Kerglerec.Province.Population">
+            <summary>
+             Gets the population for the province.
+            </summary>
+        </member>
+        <member name="M:Kerglerec.Province.Add(System.Int32)">
+            <summary>
+            Add population to the province.
+            </summary>
+            <param name="population">Population to add.</param>
+        </member>
+    </members>
+</doc>

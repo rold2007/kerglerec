@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/kerglerec
+/Src/.vs/kerglerec
+/Src/Kerglerec/bin/Debug/netstandard2.0
+/src/kerglerec/obj
+/Tests/Kerglerec.Tests/bin/Debug/netcoreapp3.0
+/src/_NCrunch_kerglerec
+/tests/kerglerec.tests/obj
+/_NCrunch_kerglerec
+/Kerglerec.v3.ncrunchsolution.user
