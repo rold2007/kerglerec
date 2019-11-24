@@ -4,6 +4,27 @@
         <name>Kerglerec</name>
     </assembly>
     <members>
+        <member name="T:Kerglerec.Calendar">
+            <summary>
+            Manages time flow.
+            </summary>
+        </member>
+        <member name="M:Kerglerec.Calendar.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Kerglerec.Calendar"/> class.
+            </summary>
+        </member>
+        <member name="P:Kerglerec.Calendar.Month">
+            <summary>
+            Gets the current month of the calendar.
+            </summary>
+        </member>
+        <member name="M:Kerglerec.Calendar.Add(System.Int32)">
+            <summary>
+            Advance time by X months.
+            </summary>
+            <param name="monthCount">Months to add.</param>
+        </member>
         <member name="T:Kerglerec.Province">
             <summary>
             Manages the characteristics of a province.

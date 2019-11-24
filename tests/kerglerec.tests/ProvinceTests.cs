@@ -32,8 +32,6 @@ namespace Kerglerec.Tests
       {
          Province province = new Province();
 
-         province.Population.ShouldBe(0);
-
          province.Add(42);
 
          province.Population.ShouldBe(42);

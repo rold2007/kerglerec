@@ -4,6 +4,11 @@
         <name>Kerglerec.Tests</name>
     </assembly>
     <members>
+        <member name="T:Kerglerec.Tests.CalendarTests">
+            <summary>
+            Contains tests for the Calendar class.
+            </summary>
+        </member>
         <member name="T:Kerglerec.Tests.ProvinceTests">
             <summary>
             Contains tests for the Province class.
