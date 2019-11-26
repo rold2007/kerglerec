@@ -19,12 +19,22 @@ namespace Kerglerec
       public Calendar()
       {
          this.Month = 1;
+         this.Year = 1;
       }
 
       /// <summary>
       /// Gets the current month of the calendar.
       /// </summary>
       public int Month
+      {
+         get;
+         private set;
+      }
+
+      /// <summary>
+      /// Gets the current year of the calendar.
+      /// </summary>
+      public int Year
       {
          get;
          private set;
@@ -39,6 +49,18 @@ namespace Kerglerec
          int month = this.Month + monthCount;
 
          this.Month = month % 12;
+      }
+
+      /// <summary>
+      /// ADvance time by X months and Y years.
+      /// </summary>
+      /// <param name="monthCount">Months to add.</param>
+      /// <param name="yearCount">Years to add.</param>
+      public void Add(int monthCount, int yearCount)
+      {
+         this.Add(monthCount);
+
+         this.Year += yearCount;
       }
    }
 }
