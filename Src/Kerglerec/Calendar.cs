@@ -52,7 +52,7 @@ namespace Kerglerec
       }
 
       /// <summary>
-      /// ADvance time by X months and Y years.
+      /// Advance time by X months and Y years.
       /// </summary>
       /// <param name="monthCount">Months to add.</param>
       /// <param name="yearCount">Years to add.</param>
