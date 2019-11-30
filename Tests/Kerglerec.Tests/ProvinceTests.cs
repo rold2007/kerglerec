@@ -14,7 +14,7 @@ namespace Kerglerec.Tests
    public class ProvinceTests
    {
       /// <summary>
-      /// Test the Province constructor.
+      /// Tests the Province constructor.
       /// </summary>
       [Fact]
       public void ConstructorTest()
@@ -25,7 +25,7 @@ namespace Kerglerec.Tests
       }
 
       /// <summary>
-      /// Test the Province::Add() method.
+      /// Tests the Province::Add() method.
       /// </summary>
       [Fact]
       public void AddTest()
@@ -35,6 +35,16 @@ namespace Kerglerec.Tests
          province.Add(42);
 
          province.Population.ShouldBe(42);
+
+         Food food = new Food();
+
+         food.Add(42);
+
+         province.Food.Rice.ShouldBe(0);
+
+         province.Add(food);
+
+         province.Food.Rice.ShouldBe(42);
       }
    }
 }

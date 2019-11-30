@@ -13,7 +13,7 @@ namespace Kerglerec.Tests
    public class CalendarTests
    {
       /// <summary>
-      /// Test the Calendar constructor.
+      /// Tests the Calendar constructor.
       /// </summary>
       [Fact]
       public void ConstructorTest()
@@ -24,7 +24,7 @@ namespace Kerglerec.Tests
       }
 
       /// <summary>
-      /// Test the Calendar::Add() method.
+      /// Tests the Calendar::Add() method.
       /// </summary>
       [Fact]
       public void AddMonthTest()
@@ -41,7 +41,7 @@ namespace Kerglerec.Tests
       }
 
       /// <summary>
-      /// Test the Calendar::Add() method.
+      /// Tests the Calendar::Add() method.
       /// </summary>
       [Fact]
       public void AddMonthYearTest()

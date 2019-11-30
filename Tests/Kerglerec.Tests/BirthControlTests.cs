@@ -14,7 +14,7 @@ namespace Kerglerec.Tests
    public class BirthControlTests
    {
       /// <summary>
-      /// Test the BirthControl class.
+      /// Tests the BirthControl constructor.
       /// </summary>
       [Fact]
       public void ConstructorTest()
@@ -23,7 +23,7 @@ namespace Kerglerec.Tests
       }
 
       /// <summary>
-      /// Test the ComputePopulationChange method.
+      /// Tests the BirthControl::ComputePopulationChange method.
       /// </summary>
       [Fact]
       public void ComputePopulationChangeTest()
@@ -47,7 +47,7 @@ namespace Kerglerec.Tests
       }
 
       /// <summary>
-      /// Test the ComputePopulationChange method with invalid parameters.
+      /// Tests the BirthControl::ComputePopulationChange method with invalid parameters.
       /// </summary>
       [Fact]
       public void ComputePopulationChangeParameterTest()
