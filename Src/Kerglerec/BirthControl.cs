@@ -27,7 +27,7 @@ namespace Kerglerec
       /// Evaluate the change in population based on the time of the year.
       /// </summary>
       /// <param name="calendar">Next month.</param>
-      /// <param name="province">Province to modify.</param>
+      /// <param name="province">Province to compute.</param>
       public void ComputePopulationChange(Calendar calendar, Province province)
       {
          if (calendar == null)
