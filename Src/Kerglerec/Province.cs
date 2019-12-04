@@ -16,14 +16,14 @@ namespace Kerglerec
       /// </summary>
       public Province()
       {
-         this.Population = 0;
+         this.Population = new Population();
          this.Food = new Food();
       }
 
       /// <summary>
       ///  Gets the population for the province.
       /// </summary>
-      public int Population
+      public Population Population
       {
          get;
          private set;
@@ -42,9 +42,9 @@ namespace Kerglerec
       /// Add population to the province.
       /// </summary>
       /// <param name="population">Population to add.</param>
-      public void Add(int population)
+      public void Add(Population population)
       {
-         this.Population += population;
+         this.Population.Add(population);
       }
 
       /// <summary>

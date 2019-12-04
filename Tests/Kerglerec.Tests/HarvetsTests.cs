@@ -33,12 +33,14 @@ namespace Kerglerec.Tests
          Harvest harvest = new Harvest();
          Calendar calendar = new Calendar();
          Province province = new Province();
+         Population startPopulation = new Population();
 
          Food food = harvest.FoodProduction(calendar, province);
 
          food.Rice.ShouldBe(0);
 
-         province.Add(1000);
+         startPopulation.Add(1000);
+         province.Add(startPopulation);
 
          calendar.Month.ShouldBe(1);
          food = harvest.FoodProduction(calendar, province);
@@ -59,7 +61,7 @@ namespace Kerglerec.Tests
             calendar.Add(1);
          }
 
-         food.Rice.ShouldBeGreaterThan(12 * province.Population);
+         food.Rice.ShouldBeGreaterThan(12 * province.Population.Adult);
       }
 
       /// <summary>

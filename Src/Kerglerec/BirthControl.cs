@@ -28,7 +28,8 @@ namespace Kerglerec
       /// </summary>
       /// <param name="calendar">Next month.</param>
       /// <param name="province">Province to compute.</param>
-      public void ComputePopulationChange(Calendar calendar, Province province)
+      /// <returns>Population flow.</returns>
+      public Population PopulationFlow(Calendar calendar, Province province)
       {
          if (calendar == null)
          {
@@ -40,18 +41,18 @@ namespace Kerglerec
             throw new ArgumentNullException(nameof(province));
          }
 
-         int populationFlow = 0;
+         Population populationFlow = new Population();
 
          if (calendar.Month >= this.springStartMonth && calendar.Month <= this.fallEndMonth)
          {
-            populationFlow = Math.Max(1, Convert.ToInt32(province.Population * this.summerBirthRate));
+            populationFlow.Add(Math.Max(1, Convert.ToInt32(province.Population.Adult * this.summerBirthRate)));
          }
          else
          {
-            populationFlow = Math.Max(1, Convert.ToInt32(-province.Population * this.winterBirthRate));
+            populationFlow.Add(Math.Max(1, Convert.ToInt32(-province.Population.Adult * this.winterBirthRate)));
          }
 
-         province.Add(populationFlow);
+         return populationFlow;
       }
    }
 }

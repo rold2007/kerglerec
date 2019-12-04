@@ -23,40 +23,44 @@ namespace Kerglerec.Tests
       }
 
       /// <summary>
-      /// Tests the BirthControl::ComputePopulationChange method.
+      /// Tests the BirthControl::PopulationChange method.
       /// </summary>
       [Fact]
-      public void ComputePopulationChangeTest()
+      public void PopulationChangeTest()
       {
-         const int startPopulation = 1000;
+         Population startPopulation = new Population();
          BirthControl birthControl = new BirthControl();
          Calendar calendar = new Calendar();
          Province province = new Province();
 
+         startPopulation.Add(1000);
+
          province.Add(startPopulation);
+
+         Population populationFlow = new Population();
 
          for (int i = 0; i < 12; i++)
          {
             calendar.Add(1);
 
-            birthControl.ComputePopulationChange(calendar, province);
+            populationFlow.Add(birthControl.PopulationFlow(calendar, province));
          }
 
-         province.Population.ShouldBeGreaterThan(startPopulation);
-         province.Population.ShouldBeLessThan(2 * startPopulation);
+         populationFlow.Adult.ShouldBeGreaterThan(0);
+         populationFlow.Adult.ShouldBeLessThan(startPopulation.Adult);
       }
 
       /// <summary>
-      /// Tests the BirthControl::ComputePopulationChange method with invalid parameters.
+      /// Tests the BirthControl::PopulationChange method with invalid parameters.
       /// </summary>
       [Fact]
-      public void ComputePopulationChangeParameterTest()
+      public void PopulationChangeParameterTest()
       {
          BirthControl birthControl = new BirthControl();
 
-         Should.Throw<ArgumentNullException>(() => { birthControl.ComputePopulationChange(null, null); }).Message.ShouldContain("calendar");
+         Should.Throw<ArgumentNullException>(() => { birthControl.PopulationFlow(null, null); }).Message.ShouldContain("calendar");
 
-         Should.Throw<ArgumentNullException>(() => { birthControl.ComputePopulationChange(new Calendar(), null); }).Message.ShouldContain("province");
+         Should.Throw<ArgumentNullException>(() => { birthControl.PopulationFlow(new Calendar(), null); }).Message.ShouldContain("province");
       }
    }
 }
