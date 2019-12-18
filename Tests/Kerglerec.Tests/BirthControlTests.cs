@@ -14,15 +14,6 @@ namespace Kerglerec.Tests
    public class BirthControlTests
    {
       /// <summary>
-      /// Tests the BirthControl constructor.
-      /// </summary>
-      [Fact]
-      public void ConstructorTest()
-      {
-         BirthControl birthControl = new BirthControl();
-      }
-
-      /// <summary>
       /// Tests the BirthControl::PopulationChange method.
       /// </summary>
       [Fact]

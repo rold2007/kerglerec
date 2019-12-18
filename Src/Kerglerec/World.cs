@@ -55,16 +55,25 @@ namespace Kerglerec
          foreach (Province province in this.provinces)
          {
             Harvest harvest = new Harvest();
+            BirthControl birthControl = new BirthControl();
+            Granary granary = new Granary();
+            Starvation starvation = new Starvation();
 
             Food foodProduction = harvest.FoodProduction(this.calendar, province);
 
             province.Add(foodProduction);
 
-            BirthControl birthControl = new BirthControl();
-
             Population populationFlow = birthControl.PopulationFlow(this.calendar, province);
 
             province.Add(populationFlow);
+
+            Food foodConsumption = granary.FoodConsumption(this.calendar, province);
+
+            province.Remove(foodConsumption);
+
+            Population deathByStarvation = starvation.Death(province, foodConsumption);
+
+            province.Remove(deathByStarvation);
          }
       }
    }

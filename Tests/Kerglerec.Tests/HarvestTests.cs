@@ -1,4 +1,4 @@
-﻿// <copyright file="HarvetsTests.cs" company="David Rolland">
+﻿// <copyright file="HarvestTests.cs" company="David Rolland">
 // Copyright (c) David Rolland. All rights reserved.
 // </copyright>
 
@@ -13,17 +13,8 @@ namespace Kerglerec.Tests
    /// <summary>
    /// Contains tests for the Harvest class.
    /// </summary>
-   public class HarvetsTests
+   public class HarvestTests
    {
-      /// <summary>
-      /// Tests the Harvest constructor.
-      /// </summary>
-      [Fact]
-      public void ConstructorTest()
-      {
-         Harvest harvest = new Harvest();
-      }
-
       /// <summary>
       /// Tests the Harvest::FoodProduction method.
       /// </summary>

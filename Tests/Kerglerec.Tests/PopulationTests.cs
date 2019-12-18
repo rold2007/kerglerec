@@ -58,5 +58,37 @@ namespace Kerglerec.Tests
 
          Should.Throw<ArgumentNullException>(() => { population.Add(null); }).Message.ShouldContain("population");
       }
+
+      /// <summary>
+      /// Tests the Population::Remove method.
+      /// </summary>
+      [Fact]
+      public void RemoveTest()
+      {
+         Population population = new Population();
+         Population populationToRemove = new Population();
+
+         population.Add(42);
+         populationToRemove.Add(30);
+         population.Remove(populationToRemove);
+         population.Adult.ShouldBe(12);
+      }
+
+      /// <summary>
+      /// Test the Population::Remove() method with invalid parameter.
+      /// </summary>
+      [Fact]
+      public void RemoveParameterTest()
+      {
+         Population population = new Population();
+
+         Should.Throw<ArgumentNullException>(() => { population.Remove(null); }).Message.ShouldContain("population");
+
+         Population populationToRemove = new Population();
+
+         populationToRemove.Add(1);
+
+         Should.Throw<ArgumentOutOfRangeException>(() => { population.Remove(populationToRemove); }).Message.ShouldContain("population");
+      }
    }
 }

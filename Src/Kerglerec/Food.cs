@@ -52,5 +52,24 @@ namespace Kerglerec
 
          this.Rice += food.Rice;
       }
+
+      /// <summary>
+      /// Remove food.
+      /// </summary>
+      /// <param name="food">Food to remove.</param>
+      public void Remove(Food food)
+      {
+         if (food == null)
+         {
+            throw new ArgumentNullException(nameof(food));
+         }
+
+         if (this.Rice < food.Rice)
+         {
+            throw new ArgumentOutOfRangeException(nameof(food));
+         }
+
+         this.Rice -= food.Rice;
+      }
    }
 }

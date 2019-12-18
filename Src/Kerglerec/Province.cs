@@ -55,5 +55,23 @@ namespace Kerglerec
       {
          this.Food.Add(food);
       }
+
+      /// <summary>
+      /// Remove food from the province.
+      /// </summary>
+      /// <param name="food">Food to remove.</param>
+      public void Remove(Food food)
+      {
+         this.Food.Remove(food);
+      }
+
+      /// <summary>
+      /// Remove the population from the province.
+      /// </summary>
+      /// <param name="population">Population to remove.</param>
+      public void Remove(Population population)
+      {
+         this.Population.Remove(population);
+      }
    }
 }

@@ -52,5 +52,24 @@ namespace Kerglerec
 
          this.Adult += population.Adult;
       }
+
+      /// <summary>
+      /// Remove population.
+      /// </summary>
+      /// <param name="population">Population to remove.</param>
+      public void Remove(Population population)
+      {
+         if (population == null)
+         {
+            throw new ArgumentNullException(nameof(population));
+         }
+
+         if (this.Adult < population.Adult)
+         {
+            throw new ArgumentOutOfRangeException(nameof(population));
+         }
+
+         this.Adult -= population.Adult;
+      }
    }
 }

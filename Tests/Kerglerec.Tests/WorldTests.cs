@@ -16,15 +16,6 @@ namespace Kerglerec.Tests
    public class WorldTests
    {
       /// <summary>
-      /// Tests the World constructor.
-      /// </summary>
-      [Fact]
-      public void ConstructorTest()
-      {
-         World world = new World();
-      }
-
-      /// <summary>
       /// Tests the World::Add method.
       /// </summary>
       [Fact]

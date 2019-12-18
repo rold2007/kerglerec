@@ -13,17 +13,6 @@ namespace Kerglerec.Tests
    public class CalendarTests
    {
       /// <summary>
-      /// Tests the Calendar constructor.
-      /// </summary>
-      [Fact]
-      public void ConstructorTest()
-      {
-         Calendar calendar = new Calendar();
-
-         calendar.Month.ShouldBe(1);
-      }
-
-      /// <summary>
       /// Tests the Calendar::Add() method.
       /// </summary>
       [Fact]

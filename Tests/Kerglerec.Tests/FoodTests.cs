@@ -56,5 +56,38 @@ namespace Kerglerec.Tests
 
          Should.Throw<ArgumentNullException>(() => { food.Add(null); }).Message.ShouldContain("food");
       }
+
+      /// <summary>
+      /// Tests the Food::Remove() method.
+      /// </summary>
+      [Fact]
+      public void RemoveTest()
+      {
+         Food food = new Food();
+         Food foodToRemove = new Food();
+
+         food.Add(42);
+         foodToRemove.Add(30);
+         food.Remove(foodToRemove);
+
+         food.Rice.ShouldBe(12);
+      }
+
+      /// <summary>
+      /// Test the Food::Remove() method with invalid parameter.
+      /// </summary>
+      [Fact]
+      public void RemoveParameterTest()
+      {
+         Food food = new Food();
+
+         Should.Throw<ArgumentNullException>(() => { food.Remove(null); }).Message.ShouldContain("food");
+
+         Food foodToRemove = new Food();
+
+         foodToRemove.Add(1);
+
+         Should.Throw<ArgumentOutOfRangeException>(() => { food.Remove(foodToRemove); }).Message.ShouldContain("food");
+      }
    }
 }
