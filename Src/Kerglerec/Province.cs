@@ -4,8 +4,6 @@
 
 namespace Kerglerec
 {
-   using System;
-
    /// <summary>
    /// Manages the characteristics of a province.
    /// </summary>

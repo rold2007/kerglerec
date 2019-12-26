@@ -4,7 +4,6 @@
 
 namespace Kerglerec.Tests
 {
-   using System;
    using Shouldly;
    using Xunit;
 

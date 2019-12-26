@@ -4,9 +4,7 @@
 
 namespace Kerglerec
 {
-   using System;
    using System.Collections.Generic;
-   using System.Text;
 
    /// <summary>
    /// Class which represent the whole world.

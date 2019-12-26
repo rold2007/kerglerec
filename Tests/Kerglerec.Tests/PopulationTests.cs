@@ -5,8 +5,6 @@
 namespace Kerglerec.Tests
 {
    using System;
-   using System.Collections.Generic;
-   using System.Text;
    using Shouldly;
    using Xunit;
 
