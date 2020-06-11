@@ -19,26 +19,24 @@ namespace Kerglerec.Tests
       [Fact]
       public void PopulationChangeTest()
       {
-         Population startPopulation = new Population();
+         Population startPopulation = Population.Empty.Add(1000);
          BirthControl birthControl = new BirthControl();
          Calendar calendar = new Calendar();
          Province province = new Province();
 
-         startPopulation.Add(1000);
-
          province.Add(startPopulation);
 
-         Population populationFlow = new Population();
+         Population populationFlow = Population.Empty;
 
          for (int i = 0; i < 12; i++)
          {
             calendar.Add(1);
 
-            populationFlow.Add(birthControl.PopulationFlow(calendar, province));
+            populationFlow = populationFlow.Add(birthControl.PopulationFlow(calendar, province));
          }
 
-         populationFlow.Adult.ShouldBeGreaterThan(0);
-         populationFlow.Adult.ShouldBeLessThan(startPopulation.Adult);
+         populationFlow.Adults.ShouldBeGreaterThan(0);
+         populationFlow.Adults.ShouldBeLessThan(startPopulation.Adults);
       }
 
       /// <summary>

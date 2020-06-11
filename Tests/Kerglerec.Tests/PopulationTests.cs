@@ -19,9 +19,9 @@ namespace Kerglerec.Tests
       [Fact]
       public void ConstructorTest()
       {
-         Population population = new Population();
+         Population population = Population.Empty;
 
-         population.Adult.ShouldBe(0);
+         population.Adults.ShouldBe(0);
       }
 
       /// <summary>
@@ -30,20 +30,16 @@ namespace Kerglerec.Tests
       [Fact]
       public void AddTest()
       {
-         Population population = new Population();
+         Population population = Population.Empty.Add(42);
 
-         population.Add(42);
+         population.Adults.ShouldBe(42);
 
-         population.Adult.ShouldBe(42);
+         Population populationAdd = Population.Empty.Add(54);
 
-         Population populationAdd = new Population();
+         population = population.Add(populationAdd);
 
-         populationAdd.Add(54);
-
-         population.Add(populationAdd);
-
-         population.Adult.ShouldBe(96);
-         populationAdd.Adult.ShouldBe(54);
+         population.Adults.ShouldBe(96);
+         populationAdd.Adults.ShouldBe(54);
       }
 
       /// <summary>
@@ -52,7 +48,7 @@ namespace Kerglerec.Tests
       [Fact]
       public void AddParameterTest()
       {
-         Population population = new Population();
+         Population population = Population.Empty;
 
          Should.Throw<ArgumentNullException>(() => { population.Add(null); }).Message.ShouldContain("population");
       }
@@ -63,13 +59,11 @@ namespace Kerglerec.Tests
       [Fact]
       public void RemoveTest()
       {
-         Population population = new Population();
-         Population populationToRemove = new Population();
+         Population population = Population.Empty.Add(42);
+         Population populationToRemove = Population.Empty.Add(30);
 
-         population.Add(42);
-         populationToRemove.Add(30);
-         population.Remove(populationToRemove);
-         population.Adult.ShouldBe(12);
+         population = population.Remove(populationToRemove);
+         population.Adults.ShouldBe(12);
       }
 
       /// <summary>
@@ -78,15 +72,13 @@ namespace Kerglerec.Tests
       [Fact]
       public void RemoveParameterTest()
       {
-         Population population = new Population();
+         Population population = Population.Empty;
 
          Should.Throw<ArgumentNullException>(() => { population.Remove(null); }).Message.ShouldContain("population");
 
-         Population populationToRemove = new Population();
+         Population populationToRemove = Population.Empty.Add(1);
 
-         populationToRemove.Add(1);
-
-         Should.Throw<ArgumentOutOfRangeException>(() => { population.Remove(populationToRemove); }).Message.ShouldContain("population");
+         Should.Throw<Shouldly.ShouldAssertException>(() => { population.Remove(populationToRemove); }).Message.ShouldContain("population");
       }
    }
 }

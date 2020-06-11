@@ -41,15 +41,15 @@ namespace Kerglerec
             throw new ArgumentNullException(nameof(province));
          }
 
-         Population populationFlow = new Population();
+         Population populationFlow = Population.Empty;
 
          if (calendar.Month >= this.springStartMonth && calendar.Month <= this.fallEndMonth)
          {
-            populationFlow.Add(Math.Max(1, Convert.ToInt32(province.Population.Adult * this.summerBirthRate)));
+            populationFlow = populationFlow.Add(Math.Max(1, Convert.ToInt32(province.Population.Adults * this.summerBirthRate)));
          }
          else
          {
-            populationFlow.Add(Math.Max(1, Convert.ToInt32(-province.Population.Adult * this.winterBirthRate)));
+            populationFlow = populationFlow.Add(Math.Max(1, Convert.ToInt32(-province.Population.Adults * this.winterBirthRate)));
          }
 
          return populationFlow;

@@ -47,11 +47,11 @@ namespace Kerglerec
 
          if (calendar.Month > this.winterEndMonth && calendar.Month < this.winterStartMonth)
          {
-            foodRequired.Add(Convert.ToInt32(this.summerConsumptionRate * province.Population.Adult));
+            foodRequired.Add(Convert.ToInt32(this.summerConsumptionRate * province.Population.Adults));
          }
          else
          {
-            foodRequired.Add(Convert.ToInt32(this.winterConsumptionRate * province.Population.Adult));
+            foodRequired.Add(Convert.ToInt32(this.winterConsumptionRate * province.Population.Adults));
          }
 
          Food foodConsumption = new Food();

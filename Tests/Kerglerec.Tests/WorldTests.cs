@@ -37,10 +37,9 @@ namespace Kerglerec.Tests
       {
          World world = new World();
          Province province = new Province();
-         Population population = new Population();
+         Population population = Population.Empty.Add(1000);
          Food food = new Food();
 
-         population.Add(1000);
          food.Add(12000);
 
          province.Add(population);
@@ -53,7 +52,7 @@ namespace Kerglerec.Tests
             world.Tick();
          }
 
-         province.Population.Adult.ShouldBeGreaterThan(population.Adult);
+         province.Population.Adults.ShouldBeGreaterThan(population.Adults);
          province.Food.Rice.ShouldBeGreaterThan(food.Rice);
       }
    }

@@ -24,18 +24,17 @@ namespace Kerglerec.Tests
          Starvation starvation = new Starvation();
          Province province = new Province();
          Food food = new Food();
-         Population population = new Population();
+         Population population = Population.Empty.Add(1000);
 
          Population deathByStarvation = starvation.Death(province, food);
 
-         deathByStarvation.Adult.ShouldBe(0);
+         deathByStarvation.Adults.ShouldBe(0);
 
-         population.Add(1000);
          province.Add(population);
 
          deathByStarvation = starvation.Death(province, food);
 
-         deathByStarvation.Adult.ShouldBeGreaterThan(0);
+         deathByStarvation.Adults.ShouldBeGreaterThan(0);
       }
 
       /// <summary>

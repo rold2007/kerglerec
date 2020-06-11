@@ -1,73 +1,106 @@
 ﻿// <copyright file="Population.cs" company="David Rolland">
 // Copyright (c) David Rolland. All rights reserved.
 // </copyright>
-
 namespace Kerglerec
 {
    using System;
+   using Shouldly;
 
    /// <summary>
    /// Manages population count.
    /// </summary>
-   public class Population
+   public sealed class Population
    {
+      private static readonly Population EmptyPopulation = new Population(0);
+
       /// <summary>
       /// Initializes a new instance of the <see cref="Population"/> class.
       /// </summary>
-      public Population()
+      /// <param name="adults">Initial adults count.</param>
+      private Population(int adults)
       {
-         this.Adult = 0;
+         adults.ShouldBeGreaterThanOrEqualTo(0);
+
+         this.Adults = adults;
+      }
+
+      /// <summary>
+      /// Gets an empty population.
+      /// </summary>
+      public static Population Empty
+      {
+         get
+         {
+            return EmptyPopulation;
+         }
       }
 
       /// <summary>
       /// Gets the adults count.
       /// </summary>
-      public int Adult
+      public int Adults
       {
          get;
-         private set;
       }
 
       /// <summary>
       /// Add adults to the population count.
       /// </summary>
       /// <param name="adults">Adults to add.</param>
-      public void Add(int adults)
+      /// <returns>New population with added adults.</returns>
+      public Population Add(int adults)
       {
-         this.Adult += adults;
+         adults.ShouldBeGreaterThanOrEqualTo(0);
+
+         int newAdultsPopulation = this.Adults + adults;
+
+         return new Population(newAdultsPopulation);
       }
 
       /// <summary>
       /// Add population.
       /// </summary>
       /// <param name="population">Population to add.</param>
-      public void Add(Population population)
+      /// <returns>New population with added adults.</returns>
+      public Population Add(Population population)
       {
          if (population == null)
          {
             throw new ArgumentNullException(nameof(population));
          }
 
-         this.Adult += population.Adult;
+         return this.Add(population.Adults);
+      }
+
+      /// <summary>
+      /// Remove adults from the population count.
+      /// </summary>
+      /// <param name="adults">Adults to remove.</param>
+      /// <returns>New population with removed adults.</returns>
+      public Population Remove(int adults)
+      {
+         adults.ShouldBeGreaterThanOrEqualTo(0);
+
+         int newAdultsPopulation = this.Adults - adults;
+
+         newAdultsPopulation.ShouldBeGreaterThanOrEqualTo(0);
+
+         return new Population(newAdultsPopulation);
       }
 
       /// <summary>
       /// Remove population.
       /// </summary>
       /// <param name="population">Population to remove.</param>
-      public void Remove(Population population)
+      /// <returns>New population with removed adults.</returns>
+      public Population Remove(Population population)
       {
          if (population == null)
          {
             throw new ArgumentNullException(nameof(population));
          }
 
-         if (this.Adult < population.Adult)
-         {
-            throw new ArgumentOutOfRangeException(nameof(population));
-         }
-
-         this.Adult -= population.Adult;
+         return this.Remove(population.Adults);
       }
    }
 }

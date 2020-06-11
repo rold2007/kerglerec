@@ -20,7 +20,7 @@ namespace Kerglerec.Tests
       {
          Province province = new Province();
 
-         province.Population.Adult.ShouldBe(0);
+         province.Population.Adults.ShouldBe(0);
       }
 
       /// <summary>
@@ -29,13 +29,12 @@ namespace Kerglerec.Tests
       [Fact]
       public void AddTest()
       {
-         Population population = new Population();
+         Population population = Population.Empty.Add(42);
          Province province = new Province();
 
-         population.Add(42);
          province.Add(population);
 
-         province.Population.Adult.ShouldBe(42);
+         province.Population.Adults.ShouldBe(42);
 
          Food food = new Food();
 

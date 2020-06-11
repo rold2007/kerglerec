@@ -40,16 +40,16 @@ namespace Kerglerec
             throw new ArgumentNullException(nameof(foodConsumption));
          }
 
-         Population deathByStarvation = new Population();
+         Population deathByStarvation = Population.Empty;
 
-         if (province.Population.Adult > 0)
+         if (province.Population.Adults > 0)
          {
-            double riceConsumptionRate = foodConsumption.Rice / province.Population.Adult;
+            double riceConsumptionRate = foodConsumption.Rice / province.Population.Adults;
 
             if (riceConsumptionRate < this.starvationFoodRate)
             {
                // With a starvation rate of 0.5 and consumption of 0.0 we target to lose half of the population.
-               deathByStarvation.Add(Convert.ToInt32((this.starvationFoodRate - riceConsumptionRate) * province.Population.Adult));
+               deathByStarvation = deathByStarvation.Add(Convert.ToInt32((this.starvationFoodRate - riceConsumptionRate) * province.Population.Adults));
             }
          }
 
