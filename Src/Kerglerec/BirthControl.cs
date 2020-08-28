@@ -9,8 +9,10 @@ namespace Kerglerec
    /// <summary>
    /// Manages population flow.
    /// </summary>
-   public class BirthControl
+   public sealed class BirthControl
    {
+      private static readonly BirthControl EmptyBirthControl = new BirthControl();
+
       private int springStartMonth = 4;
       private int fallEndMonth = 11;
       private double summerBirthRate = 0.03;
@@ -19,8 +21,19 @@ namespace Kerglerec
       /// <summary>
       /// Initializes a new instance of the <see cref="BirthControl"/> class.
       /// </summary>
-      public BirthControl()
+      private BirthControl()
       {
+      }
+
+      /// <summary>
+      /// Gets an empty birthControl.
+      /// </summary>
+      public static BirthControl Empty
+      {
+         get
+         {
+            return EmptyBirthControl;
+         }
       }
 
       /// <summary>

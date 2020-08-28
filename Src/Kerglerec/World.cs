@@ -20,7 +20,7 @@ namespace Kerglerec
       public World()
       {
          this.provinces = new HashSet<Province>();
-         this.calendar = new Calendar();
+         this.calendar = Calendar.Empty;
       }
 
       /// <summary>
@@ -48,12 +48,12 @@ namespace Kerglerec
       /// </summary>
       public void Tick()
       {
-         this.calendar.Add(1);
+         this.calendar = this.calendar.Add(1);
 
          foreach (Province province in this.provinces)
          {
             Harvest harvest = new Harvest();
-            BirthControl birthControl = new BirthControl();
+            BirthControl birthControl = BirthControl.Empty;
             Granary granary = new Granary();
             Starvation starvation = new Starvation();
 

@@ -9,12 +9,12 @@ namespace Kerglerec
    /// <summary>
    /// Manages food quantities.
    /// </summary>
-   public class Food
+   public sealed class Food
    {
       /// <summary>
       /// Initializes a new instance of the <see cref="Food"/> class.
       /// </summary>
-      public Food()
+      private Food()
       {
          this.Rice = 0;
       }

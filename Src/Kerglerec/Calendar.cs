@@ -7,15 +7,37 @@ namespace Kerglerec
    /// <summary>
    /// Manages time flow.
    /// </summary>
-   public class Calendar
+   public sealed class Calendar
    {
+      private static readonly Calendar EmptyCalendar = new Calendar();
+
       /// <summary>
       /// Initializes a new instance of the <see cref="Calendar"/> class.
       /// </summary>
-      public Calendar()
+      private Calendar()
       {
          this.Month = 1;
          this.Year = 1;
+      }
+
+      /// <summary>
+      /// Initializes a new instance of the <see cref="Calendar"/> class.
+      /// </summary>
+      private Calendar(int month, int year)
+      {
+         this.Month = month;
+         this.Year = year;
+      }
+
+      /// <summary>
+      /// Gets an empty calendar.
+      /// </summary>
+      public static Calendar Empty
+      {
+         get
+         {
+            return EmptyCalendar;
+         }
       }
 
       /// <summary>
@@ -40,11 +62,12 @@ namespace Kerglerec
       /// Advance time by X months.
       /// </summary>
       /// <param name="monthCount">Months to add.</param>
-      public void Add(int monthCount)
+      /// <returns>New calendar with added months.</returns>
+      public Calendar Add(int monthCount)
       {
          int month = this.Month + monthCount;
 
-         this.Month = month % 12;
+         return new Calendar(month % 12, this.Year);
       }
 
       /// <summary>
@@ -52,11 +75,10 @@ namespace Kerglerec
       /// </summary>
       /// <param name="monthCount">Months to add.</param>
       /// <param name="yearCount">Years to add.</param>
-      public void Add(int monthCount, int yearCount)
+      /// <returns>New calendar with added months and years.</returns>
+      public Calendar Add(int monthCount, int yearCount)
       {
-         this.Add(monthCount);
-
-         this.Year += yearCount;
+         return new Calendar(this.Add(monthCount).Month, this.Year + yearCount);
       }
    }
 }

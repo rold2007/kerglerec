@@ -18,13 +18,13 @@ namespace Kerglerec.Tests
       [Fact]
       public void AddMonthTest()
       {
-         Calendar calendar = new Calendar();
+         Calendar calendar = Calendar.Empty;
 
-         calendar.Add(1);
+         calendar = calendar.Add(1);
 
          calendar.Month.ShouldBe(2);
 
-         calendar.Add(13);
+         calendar = calendar.Add(13);
 
          calendar.Month.ShouldBe(3);
       }
@@ -35,19 +35,19 @@ namespace Kerglerec.Tests
       [Fact]
       public void AddMonthYearTest()
       {
-         Calendar calendar = new Calendar();
+         Calendar calendar = Calendar.Empty;
 
-         calendar.Add(1, 0);
+         calendar = calendar.Add(1, 0);
 
          calendar.Month.ShouldBe(2);
          calendar.Year.ShouldBe(1);
 
-         calendar.Add(0, 1);
+         calendar = calendar.Add(0, 1);
 
          calendar.Month.ShouldBe(2);
          calendar.Year.ShouldBe(2);
 
-         calendar.Add(2, 3);
+         calendar = calendar.Add(2, 3);
 
          calendar.Month.ShouldBe(4);
          calendar.Year.ShouldBe(5);
