@@ -19,7 +19,7 @@ namespace Kerglerec.Tests
       [Fact]
       public void ConstructorTest()
       {
-         Food food = new Food();
+         Food food = Food.Empty;
 
          food.Rice.ShouldBe(0);
       }
@@ -30,17 +30,17 @@ namespace Kerglerec.Tests
       [Fact]
       public void AddTest()
       {
-         Food food = new Food();
+         Food food = Food.Empty;
 
-         food.Add(42);
+         food = food.Add(42);
 
          food.Rice.ShouldBe(42);
 
-         Food foodAdd = new Food();
+         Food foodAdd = Food.Empty;
 
-         foodAdd.Add(54);
+         foodAdd = foodAdd.Add(54);
 
-         food.Add(foodAdd);
+         food = food.Add(foodAdd);
 
          food.Rice.ShouldBe(96);
          foodAdd.Rice.ShouldBe(54);
@@ -52,7 +52,7 @@ namespace Kerglerec.Tests
       [Fact]
       public void AddParameterTest()
       {
-         Food food = new Food();
+         Food food = Food.Empty;
 
          Should.Throw<ArgumentNullException>(() => { food.Add(null); }).Message.ShouldContain("food");
       }
@@ -63,12 +63,12 @@ namespace Kerglerec.Tests
       [Fact]
       public void RemoveTest()
       {
-         Food food = new Food();
-         Food foodToRemove = new Food();
+         Food food = Food.Empty;
+         Food foodToRemove = Food.Empty;
 
-         food.Add(42);
-         foodToRemove.Add(30);
-         food.Remove(foodToRemove);
+         food = food.Add(42);
+         foodToRemove = foodToRemove.Add(30);
+         food = food.Remove(foodToRemove);
 
          food.Rice.ShouldBe(12);
       }
@@ -79,13 +79,13 @@ namespace Kerglerec.Tests
       [Fact]
       public void RemoveParameterTest()
       {
-         Food food = new Food();
+         Food food = Food.Empty;
 
          Should.Throw<ArgumentNullException>(() => { food.Remove(null); }).Message.ShouldContain("food");
 
-         Food foodToRemove = new Food();
+         Food foodToRemove = Food.Empty;
 
-         foodToRemove.Add(1);
+         foodToRemove = foodToRemove.Add(1);
 
          Should.Throw<ArgumentOutOfRangeException>(() => { food.Remove(foodToRemove); }).Message.ShouldContain("food");
       }

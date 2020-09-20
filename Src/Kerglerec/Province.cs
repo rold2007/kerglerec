@@ -15,7 +15,7 @@ namespace Kerglerec
       public Province()
       {
          this.Population = Population.Empty;
-         this.Food = new Food();
+         this.Food = Food.Empty;
       }
 
       /// <summary>
@@ -51,7 +51,7 @@ namespace Kerglerec
       /// <param name="food">Food to add.</param>
       public void Add(Food food)
       {
-         this.Food.Add(food);
+         this.Food = this.Food.Add(food);
       }
 
       /// <summary>

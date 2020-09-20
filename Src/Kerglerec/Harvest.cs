@@ -41,17 +41,17 @@ namespace Kerglerec
             throw new ArgumentNullException(nameof(province));
          }
 
-         Food food = new Food();
+         Food food = Food.Empty;
 
          if (calendar.Month >= this.springStartMonth && calendar.Month <= this.fallEndMonth)
          {
             if (calendar.Month == this.fallEndMonth)
             {
-               food.Add(Convert.ToInt32(this.fallHarvestRate * province.Population.Adults));
+               food = food.Add(Convert.ToInt32(this.fallHarvestRate * province.Population.Adults));
             }
             else
             {
-               food.Add(Convert.ToInt32(this.springHarvestRate * province.Population.Adults));
+               food = food.Add(Convert.ToInt32(this.springHarvestRate * province.Population.Adults));
             }
          }
 

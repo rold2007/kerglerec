@@ -36,9 +36,9 @@ namespace Kerglerec.Tests
 
          province.Population.Adults.ShouldBe(42);
 
-         Food food = new Food();
+         Food food = Food.Empty;
 
-         food.Add(42);
+         food = food.Add(42);
 
          province.Food.Rice.ShouldBe(0);
 

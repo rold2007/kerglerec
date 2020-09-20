@@ -11,12 +11,25 @@ namespace Kerglerec
    /// </summary>
    public sealed class Food
    {
+      private static readonly Food EmptyFood = new Food();
+
       /// <summary>
       /// Initializes a new instance of the <see cref="Food"/> class.
       /// </summary>
-      private Food()
+      private Food(int rice = 0)
       {
-         this.Rice = 0;
+         this.Rice = rice;
+      }
+
+      /// <summary>
+      /// Gets an empty food.
+      /// </summary>
+      public static Food Empty
+      {
+         get
+         {
+            return EmptyFood;
+         }
       }
 
       /// <summary>
@@ -32,30 +45,33 @@ namespace Kerglerec
       /// Add rice to the food quantitites.
       /// </summary>
       /// <param name="rice">Rice to add.</param>
-      public void Add(int rice)
+      /// <returns>New food with added rice.</returns>
+      public Food Add(int rice)
       {
-         this.Rice += rice;
+         return new Food(this.Rice + rice);
       }
 
       /// <summary>
       /// Add food.
       /// </summary>
       /// <param name="food">Food to add.</param>
-      public void Add(Food food)
+      /// <returns>New food with added rice.</returns>
+      public Food Add(Food food)
       {
          if (food == null)
          {
             throw new ArgumentNullException(nameof(food));
          }
 
-         this.Rice += food.Rice;
+         return new Food(this.Rice + food.Rice);
       }
 
       /// <summary>
       /// Remove food.
       /// </summary>
       /// <param name="food">Food to remove.</param>
-      public void Remove(Food food)
+            /// <returns>New food with removed rice.</returns>
+      public Food Remove(Food food)
       {
          if (food == null)
          {
@@ -67,7 +83,7 @@ namespace Kerglerec
             throw new ArgumentOutOfRangeException(nameof(food));
          }
 
-         this.Rice -= food.Rice;
+         return new Food(this.Rice - food.Rice);
       }
    }
 }

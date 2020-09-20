@@ -40,12 +40,12 @@ namespace Kerglerec.Tests
 
          calendar = Calendar.Empty;
          calendar.Month.ShouldBe(1);
-         food = new Food();
+         food = Food.Empty;
          food.Rice.ShouldBe(0);
 
          for (int month = 0; month < 12; month++)
          {
-            food.Add(harvest.FoodProduction(calendar, province));
+            food = food.Add(harvest.FoodProduction(calendar, province));
             calendar = calendar.Add(1);
          }
 

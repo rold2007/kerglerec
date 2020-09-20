@@ -38,9 +38,9 @@ namespace Kerglerec.Tests
          World world = new World();
          Province province = new Province();
          Population population = Population.Empty.Add(1000);
-         Food food = new Food();
+         Food food = Food.Empty;
 
-         food.Add(12000);
+         food = food.Add(12000);
 
          province.Add(population);
          province.Add(food);
