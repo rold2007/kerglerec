@@ -4,10 +4,10 @@
 
 /.vs/kerglerec
 /Src/.vs/kerglerec
-/Src/Kerglerec/bin/Debug/netstandard2.0
+/Src/Kerglerec/bin
 /src/kerglerec/obj
-/Tests/Kerglerec.Tests/bin/Debug/netcoreapp3.0
-/src/_NCrunch_kerglerec
+/Tests/Kerglerec.Tests/bin
 /tests/kerglerec.tests/obj
+/src/_NCrunch_kerglerec
 /_NCrunch_kerglerec
 /Kerglerec.v3.ncrunchsolution.user
