@@ -11,8 +11,10 @@ namespace Kerglerec
    /// <summary>
    /// Manages food consumption.
    /// </summary>
-   public class Granary
+   public sealed class Granary
    {
+      private static readonly Granary EmptyGranary = new Granary();
+
       private int winterStartMonth = 12;
       private int winterEndMonth = 3;
       private double winterConsumptionRate = 1.25;
@@ -21,8 +23,19 @@ namespace Kerglerec
       /// <summary>
       /// Initializes a new instance of the <see cref="Granary"/> class.
       /// </summary>
-      public Granary()
+      private Granary()
       {
+      }
+
+      /// <summary>
+      /// Gets an empty granary.
+      /// </summary>
+      public static Granary Empty
+      {
+         get
+         {
+            return EmptyGranary;
+         }
       }
 
       /// <summary>

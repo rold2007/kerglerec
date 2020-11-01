@@ -9,8 +9,10 @@ namespace Kerglerec
    /// <summary>
    /// Manages the production of food.
    /// </summary>
-   public class Harvest
+   public sealed class Harvest
    {
+      private static readonly Harvest EmptyHarvest = new Harvest();
+
       private int springStartMonth = 4;
       private int fallEndMonth = 9;
       private double springHarvestRate = 2.0;
@@ -19,8 +21,19 @@ namespace Kerglerec
       /// <summary>
       /// Initializes a new instance of the <see cref="Harvest"/> class.
       /// </summary>
-      public Harvest()
+      private Harvest()
       {
+      }
+
+      /// <summary>
+      /// Gets an empty harvest.
+      /// </summary>
+      public static Harvest Empty
+      {
+         get
+         {
+            return EmptyHarvest;
+         }
       }
 
       /// <summary>

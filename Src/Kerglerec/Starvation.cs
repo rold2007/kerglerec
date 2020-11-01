@@ -11,15 +11,28 @@ namespace Kerglerec
    /// <summary>
    /// Manages food needs for the population.
    /// </summary>
-   public class Starvation
+   public sealed class Starvation
    {
+      private static readonly Starvation EmptyStarvation = new Starvation();
+
       private double starvationFoodRate = 0.5;
 
       /// <summary>
       /// Initializes a new instance of the <see cref="Starvation"/> class.
       /// </summary>
-      public Starvation()
+      private Starvation()
       {
+      }
+
+      /// <summary>
+      /// Gets an empty starvation.
+      /// </summary>
+      public static Starvation Empty
+      {
+         get
+         {
+            return EmptyStarvation;
+         }
       }
 
       /// <summary>

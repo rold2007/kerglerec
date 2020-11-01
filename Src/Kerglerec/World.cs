@@ -54,10 +54,10 @@ namespace Kerglerec
 
          this.provinces = this.provinces.Select(province =>
          {
-            Harvest harvest = new Harvest();
+            Harvest harvest = Harvest.Empty;
             BirthControl birthControl = BirthControl.Empty;
-            Granary granary = new Granary();
-            Starvation starvation = new Starvation();
+            Granary granary = Granary.Empty;
+            Starvation starvation = Starvation.Empty;
 
             Food foodProduction = harvest.FoodProduction(this.calendar, province);
 

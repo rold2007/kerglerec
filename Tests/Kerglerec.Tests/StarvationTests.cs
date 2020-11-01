@@ -21,7 +21,7 @@ namespace Kerglerec.Tests
       [Fact]
       public void DeathTest()
       {
-         Starvation starvation = new Starvation();
+         Starvation starvation = Starvation.Empty;
          Province province = Province.Empty;
          Food food = Food.Empty;
          Population population = Population.Empty.Add(1000);
@@ -43,7 +43,7 @@ namespace Kerglerec.Tests
       [Fact]
       public void DeathParameterTest()
       {
-         Starvation starvation = new Starvation();
+         Starvation starvation = Starvation.Empty;
          Province province = Province.Empty;
          Food food = Food.Empty;
 

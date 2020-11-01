@@ -19,7 +19,7 @@ namespace Kerglerec.Tests
       [Fact]
       public void FoodProductionTest()
       {
-         Harvest harvest = new Harvest();
+         Harvest harvest = Harvest.Empty;
          Calendar calendar = Calendar.Empty;
          Province province = Province.Empty;
          Population startPopulation = Population.Empty.Add(1000);
@@ -58,7 +58,7 @@ namespace Kerglerec.Tests
       [Fact]
       public void FoodProductionParameterTest()
       {
-         Harvest harvest = new Harvest();
+         Harvest harvest = Harvest.Empty;
 
          Should.Throw<ArgumentNullException>(() => { harvest.FoodProduction(null, null); }).Message.ShouldContain("calendar");
 
