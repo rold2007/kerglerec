@@ -4,6 +4,7 @@
 
 namespace Kerglerec.Tests
 {
+   using System.Linq;
    using Shouldly;
    using Xunit;
 
@@ -19,7 +20,7 @@ namespace Kerglerec.Tests
       public void AddTest()
       {
          World world = new World();
-         Province province = new Province();
+         Province province = Province.Empty;
 
          world.Provinces.Count.ShouldBe(0);
 
@@ -36,14 +37,14 @@ namespace Kerglerec.Tests
       public void TickTest()
       {
          World world = new World();
-         Province province = new Province();
+         Province province = Province.Empty;
          Population population = Population.Empty.Add(1000);
          Food food = Food.Empty;
 
          food = food.Add(12000);
 
-         province.Add(population);
-         province.Add(food);
+         province = province.Add(population);
+         province = province.Add(food);
 
          world.Add(province);
 
@@ -52,6 +53,7 @@ namespace Kerglerec.Tests
             world.Tick();
          }
 
+         province = world.Provinces.Single();
          province.Population.Adults.ShouldBeGreaterThan(population.Adults);
          province.Food.Rice.ShouldBeGreaterThan(food.Rice);
       }

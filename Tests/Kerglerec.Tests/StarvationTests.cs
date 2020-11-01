@@ -22,7 +22,7 @@ namespace Kerglerec.Tests
       public void DeathTest()
       {
          Starvation starvation = new Starvation();
-         Province province = new Province();
+         Province province = Province.Empty;
          Food food = Food.Empty;
          Population population = Population.Empty.Add(1000);
 
@@ -30,7 +30,7 @@ namespace Kerglerec.Tests
 
          deathByStarvation.Adults.ShouldBe(0);
 
-         province.Add(population);
+         province = province.Add(population);
 
          deathByStarvation = starvation.Death(province, food);
 
@@ -44,7 +44,7 @@ namespace Kerglerec.Tests
       public void DeathParameterTest()
       {
          Starvation starvation = new Starvation();
-         Province province = new Province();
+         Province province = Province.Empty;
          Food food = Food.Empty;
 
          Should.Throw<ArgumentNullException>(() => { starvation.Death(null, food); }).Message.ShouldContain("province");

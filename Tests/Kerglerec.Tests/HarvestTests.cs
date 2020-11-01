@@ -21,14 +21,14 @@ namespace Kerglerec.Tests
       {
          Harvest harvest = new Harvest();
          Calendar calendar = Calendar.Empty;
-         Province province = new Province();
+         Province province = Province.Empty;
          Population startPopulation = Population.Empty.Add(1000);
 
          Food food = harvest.FoodProduction(calendar, province);
 
          food.Rice.ShouldBe(0);
 
-         province.Add(startPopulation);
+         province = province.Add(startPopulation);
 
          calendar.Month.ShouldBe(1);
          food = harvest.FoodProduction(calendar, province);

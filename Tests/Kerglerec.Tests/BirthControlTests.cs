@@ -22,7 +22,7 @@ namespace Kerglerec.Tests
          Population startPopulation = Population.Empty.Add(1000);
          BirthControl birthControl = BirthControl.Empty;
          Calendar calendar = Calendar.Empty;
-         Province province = new Province();
+         Province province = Province.Empty;
 
          province.Add(startPopulation);
 

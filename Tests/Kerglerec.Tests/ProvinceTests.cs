@@ -18,7 +18,7 @@ namespace Kerglerec.Tests
       [Fact]
       public void ConstructorTest()
       {
-         Province province = new Province();
+         Province province = Province.Empty;
 
          province.Population.Adults.ShouldBe(0);
       }
@@ -30,9 +30,9 @@ namespace Kerglerec.Tests
       public void AddTest()
       {
          Population population = Population.Empty.Add(42);
-         Province province = new Province();
+         Province province = Province.Empty;
 
-         province.Add(population);
+         province = province.Add(population);
 
          province.Population.Adults.ShouldBe(42);
 
@@ -42,7 +42,7 @@ namespace Kerglerec.Tests
 
          province.Food.Rice.ShouldBe(0);
 
-         province.Add(food);
+         province = province.Add(food);
 
          province.Food.Rice.ShouldBe(42);
       }

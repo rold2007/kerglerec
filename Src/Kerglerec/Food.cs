@@ -70,7 +70,7 @@ namespace Kerglerec
       /// Remove food.
       /// </summary>
       /// <param name="food">Food to remove.</param>
-            /// <returns>New food with removed rice.</returns>
+      /// <returns>New food with removed rice.</returns>
       public Food Remove(Food food)
       {
          if (food == null)

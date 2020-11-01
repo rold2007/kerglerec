@@ -5,13 +5,15 @@
 namespace Kerglerec
 {
    using System.Collections.Generic;
+   using System.Collections.Immutable;
+   using System.Linq;
 
    /// <summary>
    /// Class which represent the whole world.
    /// </summary>
    public class World
    {
-      private HashSet<Province> provinces;
+      private ImmutableHashSet<Province> provinces;
       private Calendar calendar;
 
       /// <summary>
@@ -19,7 +21,7 @@ namespace Kerglerec
       /// </summary>
       public World()
       {
-         this.provinces = new HashSet<Province>();
+         this.provinces = ImmutableHashSet<Province>.Empty;
          this.calendar = Calendar.Empty;
       }
 
@@ -40,7 +42,7 @@ namespace Kerglerec
       /// <param name="province">Province to add.</param>
       public void Add(Province province)
       {
-         this.provinces.Add(province);
+         this.provinces = this.provinces.Add(province);
       }
 
       /// <summary>
@@ -50,7 +52,7 @@ namespace Kerglerec
       {
          this.calendar = this.calendar.Add(1);
 
-         foreach (Province province in this.provinces)
+         this.provinces = this.provinces.Select(province =>
          {
             Harvest harvest = new Harvest();
             BirthControl birthControl = BirthControl.Empty;
@@ -59,20 +61,22 @@ namespace Kerglerec
 
             Food foodProduction = harvest.FoodProduction(this.calendar, province);
 
-            province.Add(foodProduction);
+            province = province.Add(foodProduction);
 
             Population populationFlow = birthControl.PopulationFlow(this.calendar, province);
 
-            province.Add(populationFlow);
+            province = province.Add(populationFlow);
 
             Food foodConsumption = granary.FoodConsumption(this.calendar, province);
 
-            province.Remove(foodConsumption);
+            province = province.Remove(foodConsumption);
 
             Population deathByStarvation = starvation.Death(province, foodConsumption);
 
-            province.Remove(deathByStarvation);
-         }
+            province = province.Remove(deathByStarvation);
+
+            return province;
+         }).ToImmutableHashSet();
       }
    }
 }
