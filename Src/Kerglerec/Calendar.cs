@@ -14,16 +14,7 @@ namespace Kerglerec
       /// <summary>
       /// Initializes a new instance of the <see cref="Calendar"/> class.
       /// </summary>
-      private Calendar()
-      {
-         this.Month = 1;
-         this.Year = 1;
-      }
-
-      /// <summary>
-      /// Initializes a new instance of the <see cref="Calendar"/> class.
-      /// </summary>
-      private Calendar(int month, int year)
+      private Calendar(int month = 1, int year = 1)
       {
          this.Month = month;
          this.Year = year;

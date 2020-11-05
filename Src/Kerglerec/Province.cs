@@ -9,17 +9,11 @@ namespace Kerglerec
    /// </summary>
    public sealed class Province
    {
-      private static readonly Province EmptyProvince = new Province();
+      private static readonly Province EmptyProvince = new Province(Population.Empty, Food.Empty);
 
       /// <summary>
       /// Initializes a new instance of the <see cref="Province"/> class.
       /// </summary>
-      private Province()
-      {
-         this.Population = Population.Empty;
-         this.Food = Food.Empty;
-      }
-
       private Province(Population population, Food food)
       {
          this.Population = population;

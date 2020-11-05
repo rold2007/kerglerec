@@ -11,18 +11,31 @@ namespace Kerglerec
    /// <summary>
    /// Class which represent the whole world.
    /// </summary>
-   public class World
+   public sealed class World
    {
+      private static readonly World EmptyWorld = new World(ImmutableHashSet<Province>.Empty, Calendar.Empty);
+
       private ImmutableHashSet<Province> provinces;
       private Calendar calendar;
 
       /// <summary>
       /// Initializes a new instance of the <see cref="World"/> class.
       /// </summary>
-      public World()
+      private World(ImmutableHashSet<Province> provinces, Calendar calendar)
       {
-         this.provinces = ImmutableHashSet<Province>.Empty;
-         this.calendar = Calendar.Empty;
+         this.provinces = provinces;
+         this.calendar = calendar;
+      }
+
+      /// <summary>
+      /// Gets an empty world.
+      /// </summary>
+      public static World Empty
+      {
+         get
+         {
+            return EmptyWorld;
+         }
       }
 
       /// <summary>
@@ -40,19 +53,21 @@ namespace Kerglerec
       /// Add a province to the world.
       /// </summary>
       /// <param name="province">Province to add.</param>
-      public void Add(Province province)
+      /// <returns>New world with added provinces.</returns>
+      public World Add(Province province)
       {
-         this.provinces = this.provinces.Add(province);
+         return new World(this.provinces.Add(province), this.calendar);
       }
 
       /// <summary>
       /// Advance world time one step.
       /// </summary>
-      public void Tick()
+      /// <returns>New world with updated time frame.</returns>
+      public World Tick()
       {
-         this.calendar = this.calendar.Add(1);
+         Calendar calendar = this.calendar.Add(1);
 
-         this.provinces = this.provinces.Select(province =>
+         ImmutableHashSet<Province> provinces = this.provinces.Select(province =>
          {
             Harvest harvest = Harvest.Empty;
             BirthControl birthControl = BirthControl.Empty;
@@ -77,6 +92,8 @@ namespace Kerglerec
 
             return province;
          }).ToImmutableHashSet();
+
+         return new World(provinces, calendar);
       }
    }
 }

@@ -5,8 +5,6 @@
 namespace Kerglerec
 {
    using System;
-   using System.Collections.Generic;
-   using System.Text;
 
    /// <summary>
    /// Manages food needs for the population.
