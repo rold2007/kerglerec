@@ -9,30 +9,17 @@ namespace Kerglerec
    /// <summary>
    /// Manages population count.
    /// </summary>
-   public sealed class Population
+   public sealed record Population
    {
-      private static readonly Population EmptyPopulation = new Population(0);
-
       /// <summary>
-      /// Initializes a new instance of the <see cref="Population"/> class.
+      /// Initializes a new instance of the <see cref="Population"/> record.
       /// </summary>
       /// <param name="adults">Initial adults count.</param>
-      private Population(int adults)
+      public Population(int adults = 0)
       {
          adults.ShouldBeGreaterThanOrEqualTo(0);
 
          this.Adults = adults;
-      }
-
-      /// <summary>
-      /// Gets an empty population.
-      /// </summary>
-      public static Population Empty
-      {
-         get
-         {
-            return EmptyPopulation;
-         }
       }
 
       /// <summary>

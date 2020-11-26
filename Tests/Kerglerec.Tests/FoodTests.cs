@@ -19,7 +19,7 @@ namespace Kerglerec.Tests
       [Fact]
       public void ConstructorTest()
       {
-         Food food = Food.Empty;
+         Food food = new Food();
 
          food.Rice.ShouldBe(0);
       }
@@ -30,13 +30,13 @@ namespace Kerglerec.Tests
       [Fact]
       public void AddTest()
       {
-         Food food = Food.Empty;
+         Food food = new Food();
 
          food = food.Add(42);
 
          food.Rice.ShouldBe(42);
 
-         Food foodAdd = Food.Empty;
+         Food foodAdd = new Food();
 
          foodAdd = foodAdd.Add(54);
 
@@ -52,7 +52,7 @@ namespace Kerglerec.Tests
       [Fact]
       public void AddParameterTest()
       {
-         Food food = Food.Empty;
+         Food food = new Food();
 
          Should.Throw<ArgumentNullException>(() => { food.Add(null); }).Message.ShouldContain("food");
       }
@@ -63,8 +63,8 @@ namespace Kerglerec.Tests
       [Fact]
       public void RemoveTest()
       {
-         Food food = Food.Empty;
-         Food foodToRemove = Food.Empty;
+         Food food = new Food();
+         Food foodToRemove = new Food();
 
          food = food.Add(42);
          foodToRemove = foodToRemove.Add(30);
@@ -79,11 +79,11 @@ namespace Kerglerec.Tests
       [Fact]
       public void RemoveParameterTest()
       {
-         Food food = Food.Empty;
+         Food food = new Food();
 
          Should.Throw<ArgumentNullException>(() => { food.Remove(null); }).Message.ShouldContain("food");
 
-         Food foodToRemove = Food.Empty;
+         Food foodToRemove = new Food();
 
          foodToRemove = foodToRemove.Add(1);
 

@@ -9,28 +9,15 @@ namespace Kerglerec
    /// <summary>
    /// Manages food needs for the population.
    /// </summary>
-   public sealed class Starvation
+   public sealed record Starvation
    {
-      private static readonly Starvation EmptyStarvation = new Starvation();
-
       private double starvationFoodRate = 0.5;
 
       /// <summary>
-      /// Initializes a new instance of the <see cref="Starvation"/> class.
+      /// Initializes a new instance of the <see cref="Starvation"/> record.
       /// </summary>
-      private Starvation()
+      public Starvation()
       {
-      }
-
-      /// <summary>
-      /// Gets an empty starvation.
-      /// </summary>
-      public static Starvation Empty
-      {
-         get
-         {
-            return EmptyStarvation;
-         }
       }
 
       /// <summary>
@@ -51,7 +38,7 @@ namespace Kerglerec
             throw new ArgumentNullException(nameof(foodConsumption));
          }
 
-         Population deathByStarvation = Population.Empty;
+         Population deathByStarvation = new Population();
 
          if (province.Population.Adults > 0)
          {

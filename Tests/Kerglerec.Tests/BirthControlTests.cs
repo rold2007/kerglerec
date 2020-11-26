@@ -19,14 +19,14 @@ namespace Kerglerec.Tests
       [Fact]
       public void PopulationChangeTest()
       {
-         Population startPopulation = Population.Empty.Add(1000);
-         BirthControl birthControl = BirthControl.Empty;
-         Calendar calendar = Calendar.Empty;
-         Province province = Province.Empty;
+         Population startPopulation = new Population().Add(1000);
+         BirthControl birthControl = new BirthControl();
+         Calendar calendar = new Calendar();
+         Province province = new Province();
 
          province.Add(startPopulation);
 
-         Population populationFlow = Population.Empty;
+         Population populationFlow = new Population();
 
          for (int i = 0; i < 12; i++)
          {
@@ -45,11 +45,11 @@ namespace Kerglerec.Tests
       [Fact]
       public void PopulationChangeParameterTest()
       {
-         BirthControl birthControl = BirthControl.Empty;
+         BirthControl birthControl = new BirthControl();
 
          Should.Throw<ArgumentNullException>(() => { birthControl.PopulationFlow(null, null); }).Message.ShouldContain("calendar");
 
-         Should.Throw<ArgumentNullException>(() => { birthControl.PopulationFlow(Calendar.Empty, null); }).Message.ShouldContain("province");
+         Should.Throw<ArgumentNullException>(() => { birthControl.PopulationFlow(new Calendar(), null); }).Message.ShouldContain("province");
       }
    }
 }

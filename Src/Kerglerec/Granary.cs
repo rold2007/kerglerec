@@ -11,31 +11,18 @@ namespace Kerglerec
    /// <summary>
    /// Manages food consumption.
    /// </summary>
-   public sealed class Granary
+   public sealed record Granary
    {
-      private static readonly Granary EmptyGranary = new Granary();
-
       private int winterStartMonth = 12;
       private int winterEndMonth = 3;
       private double winterConsumptionRate = 1.25;
       private double summerConsumptionRate = 1.0;
 
       /// <summary>
-      /// Initializes a new instance of the <see cref="Granary"/> class.
+      /// Initializes a new instance of the <see cref="Granary"/> record.
       /// </summary>
-      private Granary()
+      public Granary()
       {
-      }
-
-      /// <summary>
-      /// Gets an empty granary.
-      /// </summary>
-      public static Granary Empty
-      {
-         get
-         {
-            return EmptyGranary;
-         }
       }
 
       /// <summary>
@@ -56,7 +43,7 @@ namespace Kerglerec
             throw new ArgumentNullException(nameof(province));
          }
 
-         Food foodRequired = Food.Empty;
+         Food foodRequired = new Food();
 
          if (calendar.Month > this.winterEndMonth && calendar.Month < this.winterStartMonth)
          {
@@ -67,7 +54,7 @@ namespace Kerglerec
             foodRequired = foodRequired.Add(Convert.ToInt32(this.winterConsumptionRate * province.Population.Adults));
          }
 
-         Food foodConsumption = Food.Empty;
+         Food foodConsumption = new Food();
 
          foodConsumption = foodConsumption.Add(Math.Min(foodRequired.Rice, province.Food.Rice));
 

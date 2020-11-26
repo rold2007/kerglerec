@@ -19,8 +19,8 @@ namespace Kerglerec.Tests
       [Fact]
       public void AddTest()
       {
-         World world = World.Empty;
-         Province province = Province.Empty;
+         World world = new World();
+         Province province = new Province();
 
          world.Provinces.Count.ShouldBe(0);
 
@@ -36,10 +36,10 @@ namespace Kerglerec.Tests
       [Fact]
       public void TickTest()
       {
-         World world = World.Empty;
-         Province province = Province.Empty;
-         Population population = Population.Empty.Add(1000);
-         Food food = Food.Empty;
+         World world = new World();
+         Province province = new Province();
+         Population population = new Population().Add(1000);
+         Food food = new Food();
 
          food = food.Add(12000);
 

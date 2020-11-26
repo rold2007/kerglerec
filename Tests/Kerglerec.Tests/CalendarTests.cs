@@ -18,7 +18,7 @@ namespace Kerglerec.Tests
       [Fact]
       public void AddMonthTest()
       {
-         Calendar calendar = Calendar.Empty;
+         Calendar calendar = new Calendar();
 
          calendar = calendar.Add(1);
 
@@ -35,7 +35,7 @@ namespace Kerglerec.Tests
       [Fact]
       public void AddMonthYearTest()
       {
-         Calendar calendar = Calendar.Empty;
+         Calendar calendar = new Calendar();
 
          calendar = calendar.Add(1, 0);
 

@@ -11,31 +11,25 @@ namespace Kerglerec
    /// <summary>
    /// Class which represent the whole world.
    /// </summary>
-   public sealed class World
+   public sealed record World
    {
-      private static readonly World EmptyWorld = new World(ImmutableHashSet<Province>.Empty, Calendar.Empty);
-
       private ImmutableHashSet<Province> provinces;
       private Calendar calendar;
 
       /// <summary>
-      /// Initializes a new instance of the <see cref="World"/> class.
+      /// Initializes a new instance of the <see cref="World"/> record.
       /// </summary>
-      private World(ImmutableHashSet<Province> provinces, Calendar calendar)
+      public World() : this(ImmutableHashSet<Province>.Empty, new Calendar())
       {
-         this.provinces = provinces;
-         this.calendar = calendar;
       }
 
       /// <summary>
-      /// Gets an empty world.
+      /// Initializes a new instance of the <see cref="World"/> record.
       /// </summary>
-      public static World Empty
+      public World(ImmutableHashSet<Province> provinces, Calendar calendar)
       {
-         get
-         {
-            return EmptyWorld;
-         }
+         this.provinces = provinces;
+         this.calendar = calendar;
       }
 
       /// <summary>
@@ -69,10 +63,10 @@ namespace Kerglerec
 
          ImmutableHashSet<Province> provinces = this.provinces.Select(province =>
          {
-            Harvest harvest = Harvest.Empty;
-            BirthControl birthControl = BirthControl.Empty;
-            Granary granary = Granary.Empty;
-            Starvation starvation = Starvation.Empty;
+            Harvest harvest = new Harvest();
+            BirthControl birthControl = new BirthControl();
+            Granary granary = new Granary();
+            Starvation starvation = new Starvation();
 
             Food foodProduction = harvest.FoodProduction(this.calendar, province);
 

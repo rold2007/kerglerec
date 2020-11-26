@@ -9,27 +9,15 @@ namespace Kerglerec
    /// <summary>
    /// Manages food quantities.
    /// </summary>
-   public sealed class Food
+   public sealed record Food
    {
-      private static readonly Food EmptyFood = new Food();
-
       /// <summary>
-      /// Initializes a new instance of the <see cref="Food"/> class.
+      /// Initializes a new instance of the <see cref="Food"/> record.
       /// </summary>
-      private Food(int rice = 0)
+      /// <param name="rice">Initial rice quantity.</param>
+      public Food(int rice = 0)
       {
          this.Rice = rice;
-      }
-
-      /// <summary>
-      /// Gets an empty food.
-      /// </summary>
-      public static Food Empty
-      {
-         get
-         {
-            return EmptyFood;
-         }
       }
 
       /// <summary>

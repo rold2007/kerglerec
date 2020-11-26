@@ -9,31 +9,18 @@ namespace Kerglerec
    /// <summary>
    /// Manages population flow.
    /// </summary>
-   public sealed class BirthControl
+   public sealed record BirthControl
    {
-      private static readonly BirthControl EmptyBirthControl = new BirthControl();
-
       private int springStartMonth = 4;
       private int fallEndMonth = 11;
       private double summerBirthRate = 0.03;
       private double winterBirthRate = -0.025;
 
       /// <summary>
-      /// Initializes a new instance of the <see cref="BirthControl"/> class.
+      /// Initializes a new instance of the <see cref="BirthControl"/> record.
       /// </summary>
-      private BirthControl()
+      public BirthControl()
       {
-      }
-
-      /// <summary>
-      /// Gets an empty birthControl.
-      /// </summary>
-      public static BirthControl Empty
-      {
-         get
-         {
-            return EmptyBirthControl;
-         }
       }
 
       /// <summary>
@@ -54,7 +41,7 @@ namespace Kerglerec
             throw new ArgumentNullException(nameof(province));
          }
 
-         Population populationFlow = Population.Empty;
+         Population populationFlow = new Population();
 
          if (calendar.Month >= this.springStartMonth && calendar.Month <= this.fallEndMonth)
          {

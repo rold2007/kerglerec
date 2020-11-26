@@ -9,31 +9,18 @@ namespace Kerglerec
    /// <summary>
    /// Manages the production of food.
    /// </summary>
-   public sealed class Harvest
+   public sealed record Harvest
    {
-      private static readonly Harvest EmptyHarvest = new Harvest();
-
       private int springStartMonth = 4;
       private int fallEndMonth = 9;
       private double springHarvestRate = 2.0;
       private double fallHarvestRate = 6.0;
 
       /// <summary>
-      /// Initializes a new instance of the <see cref="Harvest"/> class.
+      /// Initializes a new instance of the <see cref="Harvest"/> record.
       /// </summary>
-      private Harvest()
+      public Harvest()
       {
-      }
-
-      /// <summary>
-      /// Gets an empty harvest.
-      /// </summary>
-      public static Harvest Empty
-      {
-         get
-         {
-            return EmptyHarvest;
-         }
       }
 
       /// <summary>
@@ -54,7 +41,7 @@ namespace Kerglerec
             throw new ArgumentNullException(nameof(province));
          }
 
-         Food food = Food.Empty;
+         Food food = new Food();
 
          if (calendar.Month >= this.springStartMonth && calendar.Month <= this.fallEndMonth)
          {

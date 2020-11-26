@@ -19,7 +19,7 @@ namespace Kerglerec.Tests
       [Fact]
       public void ConstructorTest()
       {
-         Population population = Population.Empty;
+         Population population = new Population();
 
          population.Adults.ShouldBe(0);
       }
@@ -30,11 +30,11 @@ namespace Kerglerec.Tests
       [Fact]
       public void AddTest()
       {
-         Population population = Population.Empty.Add(42);
+         Population population = new Population().Add(42);
 
          population.Adults.ShouldBe(42);
 
-         Population populationAdd = Population.Empty.Add(54);
+         Population populationAdd = new Population().Add(54);
 
          population = population.Add(populationAdd);
 
@@ -48,7 +48,7 @@ namespace Kerglerec.Tests
       [Fact]
       public void AddParameterTest()
       {
-         Population population = Population.Empty;
+         Population population = new Population();
 
          Should.Throw<ArgumentNullException>(() => { population.Add(null); }).Message.ShouldContain("population");
       }
@@ -59,8 +59,8 @@ namespace Kerglerec.Tests
       [Fact]
       public void RemoveTest()
       {
-         Population population = Population.Empty.Add(42);
-         Population populationToRemove = Population.Empty.Add(30);
+         Population population = new Population().Add(42);
+         Population populationToRemove = new Population().Add(30);
 
          population = population.Remove(populationToRemove);
          population.Adults.ShouldBe(12);
@@ -72,11 +72,11 @@ namespace Kerglerec.Tests
       [Fact]
       public void RemoveParameterTest()
       {
-         Population population = Population.Empty;
+         Population population = new Population();
 
          Should.Throw<ArgumentNullException>(() => { population.Remove(null); }).Message.ShouldContain("population");
 
-         Population populationToRemove = Population.Empty.Add(1);
+         Population populationToRemove = new Population().Add(1);
 
          Should.Throw<Shouldly.ShouldAssertException>(() => { population.Remove(populationToRemove); }).Message.ShouldContain("population");
       }

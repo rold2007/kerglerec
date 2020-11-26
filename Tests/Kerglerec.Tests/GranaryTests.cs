@@ -21,11 +21,11 @@ namespace Kerglerec.Tests
       [Fact]
       public void FoodConsumptionTest()
       {
-         Granary granary = Granary.Empty;
-         Calendar calendar = Calendar.Empty;
-         Province province = Province.Empty;
-         Population startPopulation = Population.Empty.Add(1000);
-         Food foodStock = Food.Empty;
+         Granary granary = new Granary();
+         Calendar calendar = new Calendar();
+         Province province = new Province();
+         Population startPopulation = new Population().Add(1000);
+         Food foodStock = new Food();
 
          foodStock = foodStock.Add(500);
 
@@ -46,11 +46,11 @@ namespace Kerglerec.Tests
          foodConsumption.Rice.ShouldBeGreaterThan(0);
          foodConsumption.Rice.ShouldBeLessThanOrEqualTo(province.Food.Rice);
 
-         calendar = Calendar.Empty;
+         calendar = new Calendar();
 
          calendar.Month.ShouldBe(1);
 
-         foodConsumption = Food.Empty;
+         foodConsumption = new Food();
 
          foodConsumption.Rice.ShouldBe(0);
 
@@ -77,7 +77,7 @@ namespace Kerglerec.Tests
 
          Should.Throw<ArgumentNullException>(() => { granary.FoodConsumption(null, null); }).Message.ShouldContain("calendar");
 
-         Should.Throw<ArgumentNullException>(() => { granary.FoodConsumption(Calendar.Empty, null); }).Message.ShouldContain("province");
+         Should.Throw<ArgumentNullException>(() => { granary.FoodConsumption(new Calendar(), null); }).Message.ShouldContain("province");
       }
    }
 }

@@ -7,28 +7,22 @@ namespace Kerglerec
    /// <summary>
    /// Manages the characteristics of a province.
    /// </summary>
-   public sealed class Province
+   public sealed record Province
    {
-      private static readonly Province EmptyProvince = new Province(Population.Empty, Food.Empty);
-
       /// <summary>
-      /// Initializes a new instance of the <see cref="Province"/> class.
+      /// Initializes a new instance of the <see cref="Province"/> record.
       /// </summary>
-      private Province(Population population, Food food)
+      public Province() : this(new Population(), new Food())
       {
-         this.Population = population;
-         this.Food = food;
       }
 
       /// <summary>
-      /// Gets an empty province.
+      /// Initializes a new instance of the <see cref="Province"/> record.
       /// </summary>
-      public static Province Empty
+      public Province(Population population, Food food)
       {
-         get
-         {
-            return EmptyProvince;
-         }
+         this.Population = population;
+         this.Food = food;
       }
 
       /// <summary>

@@ -7,28 +7,15 @@ namespace Kerglerec
    /// <summary>
    /// Manages time flow.
    /// </summary>
-   public sealed class Calendar
+   public sealed record Calendar
    {
-      private static readonly Calendar EmptyCalendar = new Calendar();
-
       /// <summary>
-      /// Initializes a new instance of the <see cref="Calendar"/> class.
+      /// Initializes a new instance of the <see cref="Calendar"/> record.
       /// </summary>
-      private Calendar(int month = 1, int year = 1)
+      public Calendar(int month = 1, int year = 1)
       {
          this.Month = month;
          this.Year = year;
-      }
-
-      /// <summary>
-      /// Gets an empty calendar.
-      /// </summary>
-      public static Calendar Empty
-      {
-         get
-         {
-            return EmptyCalendar;
-         }
       }
 
       /// <summary>
