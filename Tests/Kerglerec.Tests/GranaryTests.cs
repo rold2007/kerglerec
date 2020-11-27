@@ -73,7 +73,7 @@ namespace Kerglerec.Tests
       [Fact]
       public void FoodConsumptionParameterTest()
       {
-         Granary granary = Granary.Empty;
+         Granary granary = new Granary();
 
          Should.Throw<ArgumentNullException>(() => { granary.FoodConsumption(null, null); }).Message.ShouldContain("calendar");
 
