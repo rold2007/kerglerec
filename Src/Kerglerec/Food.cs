@@ -12,7 +12,7 @@ namespace Kerglerec
    public sealed record Food
    {
       /// <summary>
-      /// Initializes a new instance of the <see cref="Food"/> record.
+      /// Initializes a new instance of the <see cref="Food"/> class.
       /// </summary>
       /// <param name="rice">Initial rice quantity.</param>
       public Food(int rice = 0)

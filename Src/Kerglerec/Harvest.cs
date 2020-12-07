@@ -17,7 +17,7 @@ namespace Kerglerec
       private double fallHarvestRate = 6.0;
 
       /// <summary>
-      /// Initializes a new instance of the <see cref="Harvest"/> record.
+      /// Initializes a new instance of the <see cref="Harvest"/> class.
       /// </summary>
       public Harvest()
       {

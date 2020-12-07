@@ -10,15 +10,18 @@ namespace Kerglerec
    public sealed record Province
    {
       /// <summary>
-      /// Initializes a new instance of the <see cref="Province"/> record.
+      /// Initializes a new instance of the <see cref="Province"/> class.
       /// </summary>
-      public Province() : this(new Population(), new Food())
+      public Province()
+            : this(new Population(), new Food())
       {
       }
 
       /// <summary>
-      /// Initializes a new instance of the <see cref="Province"/> record.
+      /// Initializes a new instance of the <see cref="Province"/> class.
       /// </summary>
+      /// <param name="population">Population for the province.</param>
+      /// <param name="food">Food for the province.</param>
       public Province(Population population, Food food)
       {
          this.Population = population;

@@ -17,15 +17,18 @@ namespace Kerglerec
       private Calendar calendar;
 
       /// <summary>
-      /// Initializes a new instance of the <see cref="World"/> record.
+      /// Initializes a new instance of the <see cref="World"/> class.
       /// </summary>
-      public World() : this(ImmutableHashSet<Province>.Empty, new Calendar())
+      public World()
+            : this(ImmutableHashSet<Province>.Empty, new Calendar())
       {
       }
 
       /// <summary>
-      /// Initializes a new instance of the <see cref="World"/> record.
+      /// Initializes a new instance of the <see cref="World"/> class.
       /// </summary>
+      /// <param name="provinces">All provinces in the world.</param>
+      /// <param name="calendar">Current calendar for the world.</param>
       public World(ImmutableHashSet<Province> provinces, Calendar calendar)
       {
          this.provinces = provinces;

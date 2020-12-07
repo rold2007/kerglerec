@@ -12,7 +12,7 @@ namespace Kerglerec
    public sealed record Population
    {
       /// <summary>
-      /// Initializes a new instance of the <see cref="Population"/> record.
+      /// Initializes a new instance of the <see cref="Population"/> class.
       /// </summary>
       /// <param name="adults">Initial adults count.</param>
       public Population(int adults = 0)

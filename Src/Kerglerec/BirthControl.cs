@@ -17,7 +17,7 @@ namespace Kerglerec
       private double winterBirthRate = -0.025;
 
       /// <summary>
-      /// Initializes a new instance of the <see cref="BirthControl"/> record.
+      /// Initializes a new instance of the <see cref="BirthControl"/> class.
       /// </summary>
       public BirthControl()
       {

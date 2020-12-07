@@ -10,8 +10,10 @@ namespace Kerglerec
    public sealed record Calendar
    {
       /// <summary>
-      /// Initializes a new instance of the <see cref="Calendar"/> record.
+      /// Initializes a new instance of the <see cref="Calendar"/> class.
       /// </summary>
+      /// <param name="month">Current month.</param>
+      /// <param name="year">Current year.</param>
       public Calendar(int month = 1, int year = 1)
       {
          this.Month = month;

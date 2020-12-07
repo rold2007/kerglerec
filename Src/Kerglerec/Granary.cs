@@ -19,7 +19,7 @@ namespace Kerglerec
       private double summerConsumptionRate = 1.0;
 
       /// <summary>
-      /// Initializes a new instance of the <see cref="Granary"/> record.
+      /// Initializes a new instance of the <see cref="Granary"/> class.
       /// </summary>
       public Granary()
       {

@@ -14,7 +14,7 @@ namespace Kerglerec
       private double starvationFoodRate = 0.5;
 
       /// <summary>
-      /// Initializes a new instance of the <see cref="Starvation"/> record.
+      /// Initializes a new instance of the <see cref="Starvation"/> class.
       /// </summary>
       public Starvation()
       {
