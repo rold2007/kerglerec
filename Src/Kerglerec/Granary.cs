@@ -5,16 +5,17 @@
 namespace Kerglerec
 {
    using System;
-   using System.Collections.Generic;
-   using System.Text;
 
    /// <summary>
    /// Manages food consumption.
    /// </summary>
    public sealed record Granary
    {
+      // TODO Replace month int values by an enum
       private int winterStartMonth = 12;
       private int winterEndMonth = 3;
+
+      // TODO Apply different rates for each season (Spring, Fall), or event each month.
       private double winterConsumptionRate = 1.25;
       private double summerConsumptionRate = 1.0;
 
@@ -45,13 +46,14 @@ namespace Kerglerec
 
          Food foodRequired = new Food();
 
+         // HACK Need to do something different when the population is very low (<10)
          if (calendar.Month > this.winterEndMonth && calendar.Month < this.winterStartMonth)
          {
-            foodRequired = foodRequired.Add(Convert.ToInt32(this.summerConsumptionRate * province.Population.Adults));
+            foodRequired = foodRequired.Add(Math.Max(1, Convert.ToInt32(this.summerConsumptionRate * province.Population.Adults)));
          }
          else
          {
-            foodRequired = foodRequired.Add(Convert.ToInt32(this.winterConsumptionRate * province.Population.Adults));
+            foodRequired = foodRequired.Add(Math.Max(1, Convert.ToInt32(this.winterConsumptionRate * province.Population.Adults)));
          }
 
          Food foodConsumption = new Food();

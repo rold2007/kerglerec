@@ -25,7 +25,7 @@ namespace Kerglerec
       /// </summary>
       /// <param name="province">Province to compute.</param>
       /// <param name="foodConsumption">Food consumption for the month.</param>
-      /// <returns>Populatin dead by hunger.</returns>
+      /// <returns>Population dead by hunger.</returns>
       public Population Death(Province province, Food foodConsumption)
       {
          if (province == null)

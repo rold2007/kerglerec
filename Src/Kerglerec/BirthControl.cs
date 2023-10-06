@@ -9,10 +9,14 @@ namespace Kerglerec
    /// <summary>
    /// Manages population flow.
    /// </summary>
+   // TODO Rename BirthControl to Birth
    public sealed record BirthControl
    {
+      // TODO Replace month int values by an enum
       private int springStartMonth = 4;
       private int fallEndMonth = 11;
+
+      // TODO Apply different rates for each season (Spring, Fall), or event each month.
       private double summerBirthRate = 0.03;
       private double winterBirthRate = -0.025;
 
@@ -43,13 +47,15 @@ namespace Kerglerec
 
          Population populationFlow = new Population();
 
+         // HACK Need to do something different when the population is very low (<10)
          if (calendar.Month >= this.springStartMonth && calendar.Month <= this.fallEndMonth)
          {
             populationFlow = populationFlow.Add(Math.Max(1, Convert.ToInt32(province.Population.Adults * this.summerBirthRate)));
          }
          else
          {
-            populationFlow = populationFlow.Add(Math.Max(1, Convert.ToInt32(-province.Population.Adults * this.winterBirthRate)));
+            // UNDONE This is bad. It doesn't allow to lose population in winter...
+            populationFlow = populationFlow.Add(Math.Max(1, Convert.ToInt32(province.Population.Adults * this.winterBirthRate)));
          }
 
          return populationFlow;

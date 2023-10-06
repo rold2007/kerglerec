@@ -47,11 +47,11 @@ namespace Kerglerec
          {
             if (calendar.Month == this.fallEndMonth)
             {
-               food = food.Add(Convert.ToInt32(this.fallHarvestRate * province.Population.Adults));
+               food = food.Add(Convert.ToInt32(Math.Max(1, this.fallHarvestRate * province.Population.Adults)));
             }
             else
             {
-               food = food.Add(Convert.ToInt32(this.springHarvestRate * province.Population.Adults));
+               food = food.Add(Convert.ToInt32(Math.Max(1, this.springHarvestRate * province.Population.Adults)));
             }
          }
 
