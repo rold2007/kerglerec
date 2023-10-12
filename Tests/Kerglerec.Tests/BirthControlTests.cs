@@ -24,7 +24,7 @@ namespace Kerglerec.Tests
          Calendar calendar = new Calendar();
          Province province = new Province();
 
-         province.Add(startPopulation);
+         province = province.Add(startPopulation);
 
          Population populationFlow = new Population();
 
