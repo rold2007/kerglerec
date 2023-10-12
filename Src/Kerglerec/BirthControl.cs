@@ -18,7 +18,7 @@ namespace Kerglerec
 
       // TODO Apply different rates for each season (Spring, Fall), or event each month.
       private double summerBirthRate = 0.03;
-      private double winterBirthRate = -0.025;
+      private double winterBirthRate = 0.01;
 
       /// <summary>
       /// Initializes a new instance of the <see cref="BirthControl"/> class.
@@ -47,15 +47,14 @@ namespace Kerglerec
 
          Population populationFlow = new Population();
 
-         // HACK Need to do something different when the population is very low (<10)
-         if (calendar.Month >= this.springStartMonth && calendar.Month <= this.fallEndMonth)
+         // HACK Need to do something different when the population is very low (<10) ?
+         if (calendar.Month >= springStartMonth && calendar.Month <= fallEndMonth)
          {
-            populationFlow = populationFlow.Add(Math.Max(1, Convert.ToInt32(province.Population.Adults * this.summerBirthRate)));
+            populationFlow = populationFlow.Add(Math.Max(1, Convert.ToInt32(province.Population.Adults * summerBirthRate)));
          }
          else
          {
-            // UNDONE This is bad. It doesn't allow to lose population in winter...
-            populationFlow = populationFlow.Add(Math.Max(1, Convert.ToInt32(province.Population.Adults * this.winterBirthRate)));
+            populationFlow = populationFlow.Add(Math.Max(1, Convert.ToInt32(province.Population.Adults * winterBirthRate)));
          }
 
          return populationFlow;
