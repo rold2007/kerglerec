@@ -24,8 +24,8 @@ namespace Kerglerec
       /// <param name="food">Food for the province.</param>
       public Province(Population population, Food food)
       {
-         this.Population = population;
-         this.Food = food;
+         Population = population;
+         Food = food;
       }
 
       /// <summary>
@@ -53,7 +53,7 @@ namespace Kerglerec
       /// <returns>New province with added population.</returns>
       public Province Add(Population population)
       {
-         return new Province(this.Population.Add(population), this.Food);
+         return new Province(Population.Add(population), Food);
       }
 
       /// <summary>
@@ -63,7 +63,7 @@ namespace Kerglerec
       /// <returns>New province with added food.</returns>
       public Province Add(Food food)
       {
-         return new Province(this.Population, this.Food.Add(food));
+         return new Province(Population, Food.Add(food));
       }
 
       /// <summary>
@@ -73,7 +73,7 @@ namespace Kerglerec
       /// <returns>New province with removed food.</returns>
       public Province Remove(Food food)
       {
-         return new Province(this.Population, this.Food.Remove(food));
+         return new Province(Population, Food.Remove(food));
       }
 
       /// <summary>
@@ -83,7 +83,7 @@ namespace Kerglerec
       /// <returns>New province with removed population.</returns>
       public Province Remove(Population population)
       {
-         return new Province(this.Population.Remove(population), this.Food);
+         return new Province(Population.Remove(population), Food);
       }
    }
 }

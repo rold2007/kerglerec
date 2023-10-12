@@ -43,15 +43,15 @@ namespace Kerglerec
 
          Food food = new Food();
 
-         if (calendar.Month >= this.springStartMonth && calendar.Month <= this.fallEndMonth)
+         if (calendar.Month >= springStartMonth && calendar.Month <= fallEndMonth)
          {
-            if (calendar.Month == this.fallEndMonth)
+            if (calendar.Month == fallEndMonth)
             {
-               food = food.Add(Convert.ToInt32(Math.Max(1, this.fallHarvestRate * province.Population.Adults)));
+               food = food.Add(Convert.ToInt32(Math.Max(1, fallHarvestRate * province.Population.Adults)));
             }
             else
             {
-               food = food.Add(Convert.ToInt32(Math.Max(1, this.springHarvestRate * province.Population.Adults)));
+               food = food.Add(Convert.ToInt32(Math.Max(1, springHarvestRate * province.Population.Adults)));
             }
          }
 

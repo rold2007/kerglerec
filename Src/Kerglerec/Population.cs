@@ -19,7 +19,7 @@ namespace Kerglerec
       {
          adults.ShouldBeGreaterThanOrEqualTo(0);
 
-         this.Adults = adults;
+         Adults = adults;
       }
 
       /// <summary>
@@ -39,7 +39,7 @@ namespace Kerglerec
       {
          adults.ShouldBeGreaterThanOrEqualTo(0);
 
-         int newAdultsPopulation = this.Adults + adults;
+         int newAdultsPopulation = Adults + adults;
 
          return new Population(newAdultsPopulation);
       }
@@ -56,7 +56,7 @@ namespace Kerglerec
             throw new ArgumentNullException(nameof(population));
          }
 
-         return this.Add(population.Adults);
+         return Add(population.Adults);
       }
 
       /// <summary>
@@ -68,7 +68,7 @@ namespace Kerglerec
       {
          adults.ShouldBeGreaterThanOrEqualTo(0);
 
-         int newAdultsPopulation = this.Adults - adults;
+         int newAdultsPopulation = Adults - adults;
 
          newAdultsPopulation.ShouldBeGreaterThanOrEqualTo(0);
 
@@ -87,7 +87,7 @@ namespace Kerglerec
             throw new ArgumentNullException(nameof(population));
          }
 
-         return this.Remove(population.Adults);
+         return Remove(population.Adults);
       }
    }
 }

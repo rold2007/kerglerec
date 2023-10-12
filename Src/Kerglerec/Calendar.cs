@@ -16,8 +16,8 @@ namespace Kerglerec
       /// <param name="year">Current year.</param>
       public Calendar(int month = 1, int year = 1)
       {
-         this.Month = month;
-         this.Year = year;
+         Month = month;
+         Year = year;
       }
 
       /// <summary>
@@ -45,9 +45,9 @@ namespace Kerglerec
       /// <returns>New calendar with added months.</returns>
       public Calendar Add(int monthCount)
       {
-         int month = this.Month + monthCount;
+         int month = Month + monthCount;
 
-         return new Calendar(month % 12, this.Year);
+         return new Calendar(month % 12, Year);
       }
 
       /// <summary>
@@ -58,7 +58,7 @@ namespace Kerglerec
       /// <returns>New calendar with added months and years.</returns>
       public Calendar Add(int monthCount, int yearCount)
       {
-         return new Calendar(this.Add(monthCount).Month, this.Year + yearCount);
+         return new Calendar(Add(monthCount).Month, Year + yearCount);
       }
    }
 }

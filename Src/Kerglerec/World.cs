@@ -42,7 +42,7 @@ namespace Kerglerec
       {
          get
          {
-            return this.provinces;
+            return provinces;
          }
       }
 
@@ -53,7 +53,7 @@ namespace Kerglerec
       /// <returns>New world with added provinces.</returns>
       public World Add(Province province)
       {
-         return new World(this.provinces.Add(province), this.calendar);
+         return new World(provinces.Add(province), calendar);
       }
 
       /// <summary>

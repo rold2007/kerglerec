@@ -44,10 +44,10 @@ namespace Kerglerec
          {
             double riceConsumptionRate = foodConsumption.Rice / province.Population.Adults;
 
-            if (riceConsumptionRate < this.starvationFoodRate)
+            if (riceConsumptionRate < starvationFoodRate)
             {
                // With a starvation rate of 0.5 and consumption of 0.0 we target to lose half of the population.
-               deathByStarvation = deathByStarvation.Add(Convert.ToInt32((this.starvationFoodRate - riceConsumptionRate) * province.Population.Adults));
+               deathByStarvation = deathByStarvation.Add(Convert.ToInt32((starvationFoodRate - riceConsumptionRate) * province.Population.Adults));
             }
          }
 

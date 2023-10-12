@@ -17,7 +17,7 @@ namespace Kerglerec
       /// <param name="rice">Initial rice quantity.</param>
       public Food(int rice = 0)
       {
-         this.Rice = rice;
+         Rice = rice;
       }
 
       /// <summary>
@@ -36,7 +36,7 @@ namespace Kerglerec
       /// <returns>New food with added rice.</returns>
       public Food Add(int rice)
       {
-         return new Food(this.Rice + rice);
+         return new Food(Rice + rice);
       }
 
       /// <summary>
@@ -51,7 +51,7 @@ namespace Kerglerec
             throw new ArgumentNullException(nameof(food));
          }
 
-         return new Food(this.Rice + food.Rice);
+         return new Food(Rice + food.Rice);
       }
 
       /// <summary>
@@ -66,12 +66,12 @@ namespace Kerglerec
             throw new ArgumentNullException(nameof(food));
          }
 
-         if (this.Rice < food.Rice)
+         if (Rice < food.Rice)
          {
             throw new ArgumentOutOfRangeException(nameof(food));
          }
 
-         return new Food(this.Rice - food.Rice);
+         return new Food(Rice - food.Rice);
       }
    }
 }

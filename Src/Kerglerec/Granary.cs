@@ -47,13 +47,13 @@ namespace Kerglerec
          Food foodRequired = new Food();
 
          // HACK Need to do something different when the population is very low (<10)
-         if (calendar.Month > this.winterEndMonth && calendar.Month < this.winterStartMonth)
+         if (calendar.Month > winterEndMonth && calendar.Month < winterStartMonth)
          {
-            foodRequired = foodRequired.Add(Math.Max(1, Convert.ToInt32(this.summerConsumptionRate * province.Population.Adults)));
+            foodRequired = foodRequired.Add(Math.Max(1, Convert.ToInt32(summerConsumptionRate * province.Population.Adults)));
          }
          else
          {
-            foodRequired = foodRequired.Add(Math.Max(1, Convert.ToInt32(this.winterConsumptionRate * province.Population.Adults)));
+            foodRequired = foodRequired.Add(Math.Max(1, Convert.ToInt32(winterConsumptionRate * province.Population.Adults)));
          }
 
          Food foodConsumption = new Food();
