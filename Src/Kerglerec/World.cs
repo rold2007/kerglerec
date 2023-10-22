@@ -67,7 +67,7 @@ namespace Kerglerec
          ImmutableHashSet<Province> provinces = this.provinces.Select(province =>
          {
             Harvest harvest = new Harvest();
-            BirthControl birthControl = new BirthControl();
+            Birth birth = new Birth();
             Granary granary = new Granary();
             Starvation starvation = new Starvation();
 
@@ -75,7 +75,7 @@ namespace Kerglerec
 
             province = province.Add(foodProduction);
 
-            Population populationFlow = birthControl.PopulationFlow(this.calendar, province);
+            Population populationFlow = birth.PopulationFlow(this.calendar, province);
 
             province = province.Add(populationFlow);
 

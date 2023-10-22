@@ -1,4 +1,4 @@
-﻿// <copyright file="BirthControl.cs" company="David Rolland">
+﻿// <copyright file="Birth.cs" company="David Rolland">
 // Copyright (c) David Rolland. All rights reserved.
 // </copyright>
 
@@ -9,8 +9,7 @@ namespace Kerglerec
    /// <summary>
    /// Manages population flow.
    /// </summary>
-   // TODO Rename BirthControl to Birth
-   public sealed record BirthControl
+   public sealed record Birth
    {
       // TODO Replace month int values by an enum
       private int springStartMonth = 4;
@@ -21,9 +20,9 @@ namespace Kerglerec
       private double winterBirthRate = 0.01;
 
       /// <summary>
-      /// Initializes a new instance of the <see cref="BirthControl"/> class.
+      /// Initializes a new instance of the <see cref="Birth"/> class.
       /// </summary>
-      public BirthControl()
+      public Birth()
       {
       }
 
