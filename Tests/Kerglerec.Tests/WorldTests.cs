@@ -8,14 +8,8 @@ namespace Kerglerec.Tests
    using Shouldly;
    using Xunit;
 
-   /// <summary>
-   /// Contains tests for the World class.
-   /// </summary>
    public class WorldTests
    {
-      /// <summary>
-      /// Tests the World::Add method.
-      /// </summary>
       [Fact]
       public void AddTest()
       {
@@ -30,9 +24,6 @@ namespace Kerglerec.Tests
          world.Provinces.ShouldContain(province);
       }
 
-      /// <summary>
-      /// Tests the World::Tick method.
-      /// </summary>
       [Fact]
       public void TickTest()
       {

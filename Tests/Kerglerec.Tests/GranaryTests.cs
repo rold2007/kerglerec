@@ -5,19 +5,11 @@
 namespace Kerglerec.Tests
 {
    using System;
-   using System.Collections.Generic;
-   using System.Text;
    using Shouldly;
    using Xunit;
 
-   /// <summary>
-   /// Contains tests for the Granary class.
-   /// </summary>
    public class GranaryTests
    {
-      /// <summary>
-      /// Tests the Granary::FoodConsumption method.
-      /// </summary>
       [Fact]
       public void FoodConsumptionTest()
       {
@@ -36,7 +28,7 @@ namespace Kerglerec.Tests
          province = province.Add(startPopulation);
          province = province.Add(foodStock);
 
-         calendar.Month.ShouldBe(1);
+         calendar.Month.ShouldBe(Month.January);
          foodConsumption = granary.FoodConsumption(calendar, province);
          foodConsumption.Rice.ShouldNotBe(0);
          foodConsumption.Rice.ShouldBeLessThanOrEqualTo(province.Food.Rice);
@@ -48,7 +40,7 @@ namespace Kerglerec.Tests
 
          calendar = new Calendar();
 
-         calendar.Month.ShouldBe(1);
+         calendar.Month.ShouldBe(Month.January);
 
          foodConsumption = new Food();
 
@@ -67,9 +59,6 @@ namespace Kerglerec.Tests
          foodConsumption.Rice.ShouldBeLessThanOrEqualTo(province.Food.Rice);
       }
 
-      /// <summary>
-      /// Tests the Harvest::FoodProduction method with invalid parameters.
-      /// </summary>
       [Fact]
       public void FoodConsumptionParameterTest()
       {

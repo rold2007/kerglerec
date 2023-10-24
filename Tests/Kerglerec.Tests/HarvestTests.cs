@@ -8,14 +8,8 @@ namespace Kerglerec.Tests
    using Shouldly;
    using Xunit;
 
-   /// <summary>
-   /// Contains tests for the Harvest class.
-   /// </summary>
    public class HarvestTests
    {
-      /// <summary>
-      /// Tests the Harvest::FoodProduction method.
-      /// </summary>
       [Fact]
       public void FoodProductionTest()
       {
@@ -30,7 +24,7 @@ namespace Kerglerec.Tests
 
          province = province.Add(startPopulation);
 
-         calendar.Month.ShouldBe(1);
+         calendar.Month.ShouldBe(Month.January);
          food = harvest.FoodProduction(calendar, province);
          food.Rice.ShouldBe(0);
 
@@ -39,7 +33,7 @@ namespace Kerglerec.Tests
          food.Rice.ShouldBeGreaterThan(0);
 
          calendar = new Calendar();
-         calendar.Month.ShouldBe(1);
+         calendar.Month.ShouldBe(Month.January);
          food = new Food();
          food.Rice.ShouldBe(0);
 
@@ -52,9 +46,6 @@ namespace Kerglerec.Tests
          food.Rice.ShouldBeGreaterThan(12 * province.Population.Adults);
       }
 
-      /// <summary>
-      /// Tests the Harvest::FoodProduction method with invalid parameters.
-      /// </summary>
       [Fact]
       public void FoodProductionParameterTest()
       {

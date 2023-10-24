@@ -8,14 +8,8 @@ namespace Kerglerec.Tests
    using Shouldly;
    using Xunit;
 
-   /// <summary>
-   /// Contains tests for the Birth class.
-   /// </summary>
    public class BirthTests
    {
-      /// <summary>
-      /// Tests the Birth::PopulationChange method.
-      /// </summary>
       [Fact]
       public void PopulationChangeTest()
       {
@@ -39,9 +33,6 @@ namespace Kerglerec.Tests
          populationFlow.Adults.ShouldBeLessThan(startPopulation.Adults);
       }
 
-      /// <summary>
-      /// Tests the Birth::PopulationChange method with invalid parameters.
-      /// </summary>
       [Fact]
       public void PopulationChangeParameterTest()
       {

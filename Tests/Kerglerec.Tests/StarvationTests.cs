@@ -5,19 +5,11 @@
 namespace Kerglerec.Tests
 {
    using System;
-   using System.Collections.Generic;
-   using System.Text;
    using Shouldly;
    using Xunit;
 
-   /// <summary>
-   /// Contains tests for the Starvation class.
-   /// </summary>
    public class StarvationTests
    {
-      /// <summary>
-      /// Tests the Starvation::Death method.
-      /// </summary>
       [Fact]
       public void DeathTest()
       {
@@ -37,9 +29,6 @@ namespace Kerglerec.Tests
          deathByStarvation.Adults.ShouldBeGreaterThan(0);
       }
 
-      /// <summary>
-      /// Test the Starvation::Death() method with invalid parameter.
-      /// </summary>
       [Fact]
       public void DeathParameterTest()
       {

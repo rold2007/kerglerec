@@ -7,14 +7,8 @@ namespace Kerglerec.Tests
    using Shouldly;
    using Xunit;
 
-   /// <summary>
-   /// Contains tests for the Calendar class.
-   /// </summary>
    public class CalendarTests
    {
-      /// <summary>
-      /// Tests the Calendar::Add() method.
-      /// </summary>
       [Fact]
       public void AddMonthTest()
       {
@@ -22,16 +16,13 @@ namespace Kerglerec.Tests
 
          calendar = calendar.Add(1);
 
-         calendar.Month.ShouldBe(2);
+         calendar.Month.ShouldBe(Month.February);
 
          calendar = calendar.Add(13);
 
-         calendar.Month.ShouldBe(3);
+         calendar.Month.ShouldBe(Month.March);
       }
 
-      /// <summary>
-      /// Tests the Calendar::Add() method.
-      /// </summary>
       [Fact]
       public void AddMonthYearTest()
       {
@@ -39,17 +30,17 @@ namespace Kerglerec.Tests
 
          calendar = calendar.Add(1, 0);
 
-         calendar.Month.ShouldBe(2);
+         calendar.Month.ShouldBe(Month.February);
          calendar.Year.ShouldBe(1);
 
          calendar = calendar.Add(0, 1);
 
-         calendar.Month.ShouldBe(2);
+         calendar.Month.ShouldBe(Month.February);
          calendar.Year.ShouldBe(2);
 
          calendar = calendar.Add(2, 3);
 
-         calendar.Month.ShouldBe(4);
+         calendar.Month.ShouldBe(Month.April);
          calendar.Year.ShouldBe(5);
       }
    }

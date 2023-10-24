@@ -8,14 +8,8 @@ namespace Kerglerec.Tests
    using Shouldly;
    using Xunit;
 
-   /// <summary>
-   /// Contains tests for the Population class.
-   /// </summary>
    public class PopulationTests
    {
-      /// <summary>
-      /// Tests the Population constructor.
-      /// </summary>
       [Fact]
       public void ConstructorTest()
       {
@@ -24,9 +18,6 @@ namespace Kerglerec.Tests
          population.Adults.ShouldBe(0);
       }
 
-      /// <summary>
-      /// Tests the Population::Add method.
-      /// </summary>
       [Fact]
       public void AddTest()
       {
@@ -42,9 +33,6 @@ namespace Kerglerec.Tests
          populationAdd.Adults.ShouldBe(54);
       }
 
-      /// <summary>
-      /// Test the Population::Add() method with invalid parameter.
-      /// </summary>
       [Fact]
       public void AddParameterTest()
       {
@@ -53,9 +41,6 @@ namespace Kerglerec.Tests
          Should.Throw<ArgumentNullException>(() => { population.Add(null); }).Message.ShouldContain("population");
       }
 
-      /// <summary>
-      /// Tests the Population::Remove method.
-      /// </summary>
       [Fact]
       public void RemoveTest()
       {
@@ -66,9 +51,6 @@ namespace Kerglerec.Tests
          population.Adults.ShouldBe(12);
       }
 
-      /// <summary>
-      /// Test the Population::Remove() method with invalid parameter.
-      /// </summary>
       [Fact]
       public void RemoveParameterTest()
       {

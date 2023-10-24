@@ -7,14 +7,8 @@ namespace Kerglerec.Tests
    using Shouldly;
    using Xunit;
 
-   /// <summary>
-   /// Contains tests for the Province class.
-   /// </summary>
    public class ProvinceTests
    {
-      /// <summary>
-      /// Tests the Province constructor.
-      /// </summary>
       [Fact]
       public void ConstructorTest()
       {
@@ -23,9 +17,6 @@ namespace Kerglerec.Tests
          province.Population.Adults.ShouldBe(0);
       }
 
-      /// <summary>
-      /// Tests the Province::Add() method.
-      /// </summary>
       [Fact]
       public void AddTest()
       {

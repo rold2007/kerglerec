@@ -4,58 +4,33 @@
 
 namespace Kerglerec
 {
-   /// <summary>
-   /// Manages time flow.
-   /// </summary>
    public sealed record Calendar
    {
-      /// <summary>
-      /// Initializes a new instance of the <see cref="Calendar"/> class.
-      /// </summary>
-      /// <param name="month">Current month.</param>
-      /// <param name="year">Current year.</param>
-      public Calendar(int month = 1, int year = 1)
+      public Calendar(Month month = Month.January, int year = 1)
       {
          Month = month;
          Year = year;
       }
 
-      /// <summary>
-      /// Gets the current month of the calendar.
-      /// </summary>
-      public int Month
+      public Month Month
       {
          get;
          private set;
       }
 
-      /// <summary>
-      /// Gets the current year of the calendar.
-      /// </summary>
       public int Year
       {
          get;
          private set;
       }
 
-      /// <summary>
-      /// Advance time by X months.
-      /// </summary>
-      /// <param name="monthCount">Months to add.</param>
-      /// <returns>New calendar with added months.</returns>
       public Calendar Add(int monthCount)
       {
-         int month = Month + monthCount;
+         int month = (int)Month + monthCount;
 
-         return new Calendar(month % 12, Year);
+         return new Calendar((Kerglerec.Month)(month % 12), Year);
       }
 
-      /// <summary>
-      /// Advance time by X months and Y years.
-      /// </summary>
-      /// <param name="monthCount">Months to add.</param>
-      /// <param name="yearCount">Years to add.</param>
-      /// <returns>New calendar with added months and years.</returns>
       public Calendar Add(int monthCount, int yearCount)
       {
          return new Calendar(Add(monthCount).Month, Year + yearCount);

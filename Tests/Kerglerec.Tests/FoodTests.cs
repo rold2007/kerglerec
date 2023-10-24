@@ -8,14 +8,8 @@ namespace Kerglerec.Tests
    using Shouldly;
    using Xunit;
 
-   /// <summary>
-   /// Contains tests for the Food class.
-   /// </summary>
    public class FoodTests
    {
-      /// <summary>
-      /// Tests the Food constructor.
-      /// </summary>
       [Fact]
       public void ConstructorTest()
       {
@@ -24,9 +18,6 @@ namespace Kerglerec.Tests
          food.Rice.ShouldBe(0);
       }
 
-      /// <summary>
-      /// Tests the Food::Add() method.
-      /// </summary>
       [Fact]
       public void AddTest()
       {
@@ -46,9 +37,6 @@ namespace Kerglerec.Tests
          foodAdd.Rice.ShouldBe(54);
       }
 
-      /// <summary>
-      /// Test the Food::Add() method with invalid parameter.
-      /// </summary>
       [Fact]
       public void AddParameterTest()
       {
@@ -57,9 +45,6 @@ namespace Kerglerec.Tests
          Should.Throw<ArgumentNullException>(() => { food.Add(null); }).Message.ShouldContain("food");
       }
 
-      /// <summary>
-      /// Tests the Food::Remove() method.
-      /// </summary>
       [Fact]
       public void RemoveTest()
       {
@@ -73,9 +58,6 @@ namespace Kerglerec.Tests
          food.Rice.ShouldBe(12);
       }
 
-      /// <summary>
-      /// Test the Food::Remove() method with invalid parameter.
-      /// </summary>
       [Fact]
       public void RemoveParameterTest()
       {

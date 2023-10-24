@@ -6,26 +6,14 @@ namespace Kerglerec
 {
    using System;
 
-   /// <summary>
-   /// Manages food needs for the population.
-   /// </summary>
    public sealed record Starvation
    {
       private double starvationFoodRate = 0.5;
 
-      /// <summary>
-      /// Initializes a new instance of the <see cref="Starvation"/> class.
-      /// </summary>
       public Starvation()
       {
       }
 
-      /// <summary>
-      /// Computes the population lacking food.
-      /// </summary>
-      /// <param name="province">Province to compute.</param>
-      /// <param name="foodConsumption">Food consumption for the month.</param>
-      /// <returns>Population dead by hunger.</returns>
       public Population Death(Province province, Food foodConsumption)
       {
          if (province == null)
