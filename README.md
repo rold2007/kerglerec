@@ -6,20 +6,18 @@ This game is meant to have a similar gameplay as Romance of the Three Kindgoms 2
 To run the unit tests automatically in VS Code, run the following command in a Terminal: dotnet watch --project .\Tests\Kerglerec.Tests\ test
 
 # Code coverage
-#prerequisite
--Install dotnet-coverage: dotnet tool install --global dotnet-coverage
--Install reportgenerator: dotnet tool install -g dotnet-reportgenerator-globaltool
-
 1. dotnet-coverage collect -f cobertura -o "coveragereport\coverage.cobertura.xml" "dotnet test"
 2. reportgenerator -reports:"coveragereport\coverage.cobertura.xml" -targetdir:"coveragereport" -reporttypes:Html
 3. Open coveragereport\index.html
+## prerequisite
+- Install dotnet-coverage: dotnet tool install --global dotnet-coverage
+- Install reportgenerator: dotnet tool install -g dotnet-reportgenerator-globaltool
 
 # Task List
-#prerequisite
--Install TODO Highlight v2
-
-TODO-Highlight List highlighted annotations
+TODO-Highlight List highlighted annotations.
 Only UNDONE (high priority), TODO (normal priority) and HACK (low priority) are used.
+## prerequisite
+- Install TODO Highlight v2
 
 # Contributing
 This project is not yet ready for contributions.
