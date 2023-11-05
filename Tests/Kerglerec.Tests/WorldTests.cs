@@ -4,10 +4,12 @@
 
 namespace Kerglerec.Tests
 {
+   using System.Collections.Generic;
    using System.Linq;
    using Shouldly;
    using Xunit;
 
+   // UNDONE Add integration test with many provinces
    public class WorldTests
    {
       [Fact]
@@ -47,6 +49,41 @@ namespace Kerglerec.Tests
          province = world.Provinces.Single();
          province.Population.Adults.ShouldBeGreaterThan(population.Adults);
          province.Food.Rice.ShouldBeGreaterThan(food.Rice);
+      }
+
+      [Fact]
+      public void IntegrationTest()
+      {
+         const int provincesCount = 4;
+         const int initialPopulation = 1000;
+         const int initialRice = 12000;
+         World world = new World();
+
+         for (int i = 0; i < provincesCount; i++)
+         {
+            Province province = new Province();
+            Population population = new Population().Add(initialPopulation);
+            Food food = new Food();
+
+            food = food.Add(initialRice);
+
+            province = province.Add(population);
+            province = province.Add(food);
+            world = world.Add(province);
+         }
+
+         for (int month = 0; month < 24; month++)
+         {
+            world = world.Tick();
+         }
+
+         world.Provinces.Count().ShouldBe(provincesCount);
+
+         foreach (Province province in world.Provinces)
+         {
+            province.Population.Adults.ShouldBeGreaterThan(initialPopulation);
+            province.Food.Rice.ShouldBeGreaterThan(initialRice);
+         }
       }
    }
 }

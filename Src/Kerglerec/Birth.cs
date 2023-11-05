@@ -8,12 +8,21 @@ namespace Kerglerec
 
    public sealed record Birth
    {
-      private Month springStartMonth = Month.April;
-      private Month fallEndMonth = Month.November;
-
-      // TODO Apply different rates for each season (Spring, Fall), or event each month.
-      private double summerBirthRate = 0.03;
-      private double winterBirthRate = 0.01;
+      private double[] monthlyBirthRates =
+      {
+            0.01, // Januray
+            0.01,
+            0.02,
+            0.03, // April
+            0.05,
+            0.03,
+            0.03, // July
+            0.03,
+            0.03,
+            0.02, // October
+            0.01,
+            0.01
+      };
 
       public Birth()
       {
@@ -34,14 +43,7 @@ namespace Kerglerec
          Population populationFlow = new Population();
 
          // HACK Need to do something different when the population is very low (<10) ?
-         if (calendar.Month >= springStartMonth && calendar.Month <= fallEndMonth)
-         {
-            populationFlow = populationFlow.Add(Math.Max(1, Convert.ToInt32(province.Population.Adults * summerBirthRate)));
-         }
-         else
-         {
-            populationFlow = populationFlow.Add(Math.Max(1, Convert.ToInt32(province.Population.Adults * winterBirthRate)));
-         }
+         populationFlow = populationFlow.Add(Math.Max(1, Convert.ToInt32(province.Population.Adults * monthlyBirthRates[(int)calendar.Month])));
 
          return populationFlow;
       }

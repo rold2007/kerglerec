@@ -8,12 +8,21 @@ namespace Kerglerec
 
    public sealed record Granary
    {
-      private Month winterStartMonth = Month.December;
-      private Month winterEndMonth = Month.March;
-
-      // TODO Apply different rates for each season (Spring, Fall), or event each month.
-      private double winterConsumptionRate = 1.25;
-      private double summerConsumptionRate = 1.0;
+      private double[] monthlyConsumptionRates =
+      {
+            1.25, // Januray
+            1.25,
+            1.25,
+            1.20, // April
+            1.15,
+            1.10,
+            1.10, // July
+            1.10,
+            1.10,
+            1.15, // October
+            1.20,
+            1.25
+      };
 
       public Granary()
       {
@@ -34,14 +43,7 @@ namespace Kerglerec
          Food foodRequired = new Food();
 
          // HACK Need to do something different when the population is very low (<10)
-         if (calendar.Month > winterEndMonth && calendar.Month < winterStartMonth)
-         {
-            foodRequired = foodRequired.Add(Math.Max(1, Convert.ToInt32(summerConsumptionRate * province.Population.Adults)));
-         }
-         else
-         {
-            foodRequired = foodRequired.Add(Math.Max(1, Convert.ToInt32(winterConsumptionRate * province.Population.Adults)));
-         }
+         foodRequired = foodRequired.Add(Math.Max(1, Convert.ToInt32(monthlyConsumptionRates[(int)calendar.Month] * province.Population.Adults)));
 
          Food foodConsumption = new Food();
 

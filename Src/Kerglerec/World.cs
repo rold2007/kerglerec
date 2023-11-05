@@ -8,17 +8,20 @@ namespace Kerglerec
    using System.Collections.Immutable;
    using System.Linq;
 
+   // UNDONE Add actions per province so that basic a AI can be built
    public sealed record World
    {
       private ImmutableHashSet<Province> provinces;
       private Calendar calendar;
 
+      static private ReferenceEqualityComparer referenceEqualityComparer = ReferenceEqualityComparer.Instance;
+
       public World()
-            : this(ImmutableHashSet<Province>.Empty, new Calendar())
+            : this(ImmutableHashSet.Create<Province>(referenceEqualityComparer), new Calendar())
       {
       }
 
-      public World(ImmutableHashSet<Province> provinces, Calendar calendar)
+      private World(ImmutableHashSet<Province> provinces, Calendar calendar)
       {
          this.provinces = provinces;
          this.calendar = calendar;
@@ -65,7 +68,7 @@ namespace Kerglerec
             province = province.Remove(deathByStarvation);
 
             return province;
-         }).ToImmutableHashSet();
+         }).ToImmutableHashSet<Province>(referenceEqualityComparer);
 
          return new World(provinces, calendar);
       }
