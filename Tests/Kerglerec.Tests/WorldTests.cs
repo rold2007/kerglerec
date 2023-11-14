@@ -9,7 +9,6 @@ namespace Kerglerec.Tests
    using Shouldly;
    using Xunit;
 
-   // UNDONE Add integration test with many provinces
    public class WorldTests
    {
       [Fact]
@@ -75,6 +74,8 @@ namespace Kerglerec.Tests
          for (int month = 0; month < 24; month++)
          {
             world = world.Tick();
+
+            world = world.Add(new PlayerAction());
          }
 
          world.Provinces.Count().ShouldBe(provincesCount);

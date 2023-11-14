@@ -8,23 +8,26 @@ namespace Kerglerec
    using System.Collections.Immutable;
    using System.Linq;
 
-   // UNDONE Add actions per province so that basic a AI can be built
+   // TODO Add actions per province so that basic a AI can be built
    public sealed record World
    {
-      private ImmutableHashSet<Province> provinces;
+      private ImmutableList<Province> provinces;
       private Calendar calendar;
-
-      static private ReferenceEqualityComparer referenceEqualityComparer = ReferenceEqualityComparer.Instance;
+      private ImmutableList<PlayerAction> playerActions;
 
       public World()
-            : this(ImmutableHashSet.Create<Province>(referenceEqualityComparer), new Calendar())
+            : this(
+               ImmutableList<Province>.Empty,
+               new Calendar(),
+               ImmutableList<PlayerAction>.Empty)
       {
       }
 
-      private World(ImmutableHashSet<Province> provinces, Calendar calendar)
+      private World(ImmutableList<Province> provinces, Calendar calendar, ImmutableList<PlayerAction> playerActions)
       {
          this.provinces = provinces;
          this.calendar = calendar;
+         this.playerActions = playerActions;
       }
 
       public IReadOnlyCollection<Province> Provinces
@@ -37,14 +40,22 @@ namespace Kerglerec
 
       public World Add(Province province)
       {
-         return new World(provinces.Add(province), calendar);
+         return new World(provinces.Add(province), calendar, playerActions);
+      }
+
+      public World Add(PlayerAction playerAction)
+      {
+         return new World(provinces, calendar, playerActions.Add(playerAction));
       }
 
       public World Tick()
       {
          Calendar calendar = this.calendar.Add(1);
 
-         ImmutableHashSet<Province> provinces = this.provinces.Select(province =>
+         playerActions.ForEach(p => ProcessPlayerAction(p));
+         playerActions.Clear();
+
+         ImmutableList<Province> provinces = this.provinces.Select(province =>
          {
             Harvest harvest = new Harvest();
             Birth birth = new Birth();
@@ -68,9 +79,15 @@ namespace Kerglerec
             province = province.Remove(deathByStarvation);
 
             return province;
-         }).ToImmutableHashSet<Province>(referenceEqualityComparer);
+         }).ToImmutableList<Province>();
 
-         return new World(provinces, calendar);
+         return new World(provinces, calendar, playerActions);
+      }
+
+      public void ProcessPlayerAction(PlayerAction playerAction)
+      {
+         // UNDONE The action needs a unique ID on the province to apply the action
+         // UNDONE There should be one player action class for each time of
       }
    }
 }
