@@ -19,5 +19,10 @@ Only UNDONE (high priority), TODO (normal priority) and HACK (low priority) are 
 ## prerequisite
 - Install TODO Highlight v2
 
+# Update packages
+dotnet-outdated -u
+## prerequisite
+dotnet tool install --global dotnet-outdated-tool
+
 # Contributing
 This project is not yet ready for contributions.
