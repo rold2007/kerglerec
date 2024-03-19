@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kerglerec", "src\kerglerec\Kerglerec.csproj", "{4D1F6318-3D01-4BB5-A56F-3531AD66EDC3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kerglerec", "Src\Kerglerec\Kerglerec.csproj", "{4D1F6318-3D01-4BB5-A56F-3531AD66EDC3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kerglerec.Tests", "tests\kerglerec.tests\Kerglerec.Tests.csproj", "{0D42906C-C798-4406-9E08-CFADB2B51A27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kerglerec.Tests", "Tests\Kerglerec.Tests\Kerglerec.Tests.csproj", "{0D42906C-C798-4406-9E08-CFADB2B51A27}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

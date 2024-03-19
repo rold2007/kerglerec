@@ -46,7 +46,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\kerglerec\Kerglerec.csproj" />
+    <ProjectReference Include="..\..\Src\Kerglerec\Kerglerec.csproj" />
   </ItemGroup>
 
 </Project>
