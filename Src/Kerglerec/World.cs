@@ -15,11 +15,7 @@ namespace Kerglerec
       private Calendar calendar;
       private ImmutableList<PlayerAction> playerActions;
 
-      public World()
-            : this(
-               ImmutableList<Province>.Empty,
-               new Calendar(),
-               ImmutableList<PlayerAction>.Empty)
+      public World() : this(ImmutableList<Province>.Empty, new Calendar(), ImmutableList<PlayerAction>.Empty)
       {
       }
 

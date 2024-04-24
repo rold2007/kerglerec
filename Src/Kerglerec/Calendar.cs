@@ -6,7 +6,11 @@ namespace Kerglerec
 {
    public sealed record Calendar
    {
-      public Calendar(Month month = Month.January, int year = 1)
+      public Calendar() : this(Month.January, 1)
+      {
+      }
+
+      private Calendar(Month month, int year)
       {
          Month = month;
          Year = year;

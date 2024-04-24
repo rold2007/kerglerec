@@ -9,10 +9,8 @@ namespace Kerglerec
 {
    public sealed record Land
    {
-      public Land()
+      public Land() : this(0, 0)
       {
-         AgricultureLevel = 0;
-         StructureLevel = 0;
       }
 
       private Land(int agricultureLevel, int structureLevel)

@@ -8,7 +8,11 @@ namespace Kerglerec
 
    public sealed record Food
    {
-      public Food(int rice = 0)
+      public Food() : this(0)
+      {
+      }
+
+      private Food(int rice)
       {
          Rice = rice;
       }

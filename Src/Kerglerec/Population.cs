@@ -8,7 +8,11 @@ namespace Kerglerec
 
    public sealed record Population
    {
-      public Population(int adults = 0)
+      public Population() : this(0)
+      {
+      }
+
+      private Population(int adults)
       {
          adults.ShouldBeGreaterThanOrEqualTo(0);
 

@@ -8,12 +8,11 @@ namespace Kerglerec
 {
    public sealed record Province
    {
-      public Province()
-            : this(new Population(), new Food(), new Land())
+      public Province() : this(new Population(), new Food(), new Land())
       {
       }
 
-      public Province(Population population, Food food, Land land)
+      private Province(Population population, Food food, Land land)
       {
          Population = population;
          Food = food;
