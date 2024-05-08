@@ -2,8 +2,6 @@
 // Copyright (c) David Rolland. All rights reserved.
 // </copyright>
 
-using System;
-
 namespace Kerglerec
 {
    public sealed record Province
@@ -37,24 +35,19 @@ namespace Kerglerec
          private set;
       }
 
-      public Province Add(Population population)
+      public Province Update(Population population)
       {
-         return new Province(Population.Add(population), Food, Land);
+         return new Province(population, Food, Land);
       }
 
-      public Province Add(Food food)
+      public Province Update(Food food)
       {
-         return new Province(Population, Food.Add(food), Land);
+         return new Province(Population, food, Land);
       }
 
-      public Province Remove(Food food)
+      public Province Update(Land land)
       {
-         return new Province(Population, Food.Remove(food), Land);
-      }
-
-      public Province Remove(Population population)
-      {
-         return new Province(Population.Remove(population), Food, Land);
+         return new Province(Population, Food, land);
       }
    }
 }

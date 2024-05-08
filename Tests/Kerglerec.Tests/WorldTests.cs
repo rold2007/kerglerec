@@ -35,8 +35,8 @@ namespace Kerglerec.Tests
 
          food = food.Add(12000);
 
-         province = province.Add(population);
-         province = province.Add(food);
+         province = province.Update(province.Population.Add(population));
+         province = province.Update(province.Food.Add(food));
 
          world = world.Add(province);
 
@@ -66,8 +66,8 @@ namespace Kerglerec.Tests
 
             food = food.Add(initialRice);
 
-            province = province.Add(population);
-            province = province.Add(food);
+            province = province.Update(province.Population.Add(population));
+            province = province.Update(province.Food.Add(food));
             world = world.Add(province);
          }
 

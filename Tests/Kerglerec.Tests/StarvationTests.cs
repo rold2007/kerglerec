@@ -22,7 +22,7 @@ namespace Kerglerec.Tests
 
          deathByStarvation.Adults.ShouldBe(0);
 
-         province = province.Add(population);
+         province = province.Update(province.Population.Add(population));
 
          deathByStarvation = starvation.Death(province, food);
 

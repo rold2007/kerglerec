@@ -22,7 +22,7 @@ namespace Kerglerec.Tests
 
          food.Rice.ShouldBe(0);
 
-         province = province.Add(startPopulation);
+         province = province.Update(province.Population.Add(startPopulation));
 
          calendar.Month.ShouldBe(Month.January);
          food = harvest.FoodProduction(calendar, province);

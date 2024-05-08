@@ -25,8 +25,8 @@ namespace Kerglerec.Tests
 
          foodConsumption.Rice.ShouldBe(0);
 
-         province = province.Add(startPopulation);
-         province = province.Add(foodStock);
+         province = province.Update(province.Population.Add(startPopulation));
+         province = province.Update(province.Food.Add(foodStock));
 
          calendar.Month.ShouldBe(Month.January);
          foodConsumption = granary.FoodConsumption(calendar, province);
@@ -47,7 +47,7 @@ namespace Kerglerec.Tests
          foodConsumption.Rice.ShouldBe(0);
 
          foodStock = foodStock.Add(50000);
-         province = province.Add(foodStock);
+         province = province.Update(province.Food.Add(foodStock));
 
          for (int month = 0; month < 12; month++)
          {

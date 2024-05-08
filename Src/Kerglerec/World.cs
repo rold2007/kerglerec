@@ -60,19 +60,19 @@ namespace Kerglerec
 
             Food foodProduction = harvest.FoodProduction(this.calendar, province);
 
-            province = province.Add(foodProduction);
+            province = province.Update(province.Food.Add(foodProduction));
 
             Population populationFlow = birth.PopulationFlow(this.calendar, province);
 
-            province = province.Add(populationFlow);
+            province = province.Update(province.Population.Add(populationFlow));
 
             Food foodConsumption = granary.FoodConsumption(this.calendar, province);
 
-            province = province.Remove(foodConsumption);
+            province = province.Update(province.Food.Remove(foodConsumption));
 
             Population deathByStarvation = starvation.Death(province, foodConsumption);
 
-            province = province.Remove(deathByStarvation);
+            province = province.Update(province.Population.Remove(deathByStarvation));
 
             return province;
          }).ToImmutableList<Province>();
