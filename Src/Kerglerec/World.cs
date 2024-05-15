@@ -9,7 +9,7 @@ namespace Kerglerec
    using System.Linq;
 
    // TODO Add actions per province so that basic a AI can be built
-   public sealed record World
+   public sealed record World // ncrunch: no coverage
    {
       private ImmutableList<Province> provinces;
       private Calendar calendar;

@@ -6,7 +6,7 @@ namespace Kerglerec
 {
    using System;
 
-   public sealed record Food
+   public sealed record Food // ncrunch: no coverage
    {
       public Food() : this(0)
       {

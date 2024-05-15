@@ -4,7 +4,7 @@
 
 namespace Kerglerec
 {
-   public sealed record PlayerAction
+   public sealed record PlayerAction // ncrunch: no coverage
    {
       public PlayerAction()
       {

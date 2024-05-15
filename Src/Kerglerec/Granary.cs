@@ -6,7 +6,7 @@ namespace Kerglerec
 {
    using System;
 
-   public sealed record Granary
+   public sealed record Granary // ncrunch: no coverage
    {
       private double[] monthlyConsumptionRates =
       {

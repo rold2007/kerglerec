@@ -4,7 +4,7 @@
 
 namespace Kerglerec
 {
-   public sealed record Calendar
+   public sealed record Calendar // ncrunch: no coverage
    {
       public Calendar() : this(Month.January, 1)
       {

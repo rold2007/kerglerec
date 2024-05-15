@@ -2,8 +2,8 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs/kerglerec
-/Src/.vs/kerglerec
+/.vs
+/Src/.vs
 /Src/Kerglerec/bin
 /src/kerglerec/obj
 /Tests/Kerglerec.Tests/bin
@@ -12,3 +12,4 @@
 /_NCrunch_kerglerec
 /Kerglerec.v3.ncrunchsolution.user
 /coveragereport
+/.NCrunch_Kerglerec

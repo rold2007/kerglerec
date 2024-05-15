@@ -6,7 +6,7 @@ namespace Kerglerec
    using System;
    using Shouldly;
 
-   public sealed record Population
+   public sealed record Population // ncrunch: no coverage
    {
       public Population() : this(0)
       {
