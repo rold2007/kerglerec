@@ -1,6 +1,6 @@
 # Project Description
 
-This game is meant to have a similar gameplay as Romance of the Three Kindgoms 2 (for Super Nintendo). It will feature simple mechanics and very basic graphics. It will be easy to modify the historical context to adapt it to other places, not only China. The war resolution will not feature an action phase, this way it will make it easy to play online from a smartphone/PC/etc and be able to quit anytime. The war gameplay may borrow ideas from the game of go with a hint of Diplomacy.
+This game is meant to have a similar gameplay as a mix of Romance of the Three Kindgoms 2 (for Super Nintendo), Lord of the Realms, Ultimate Domain and Fantasy Empires. It will feature simple mechanics and very basic graphics. It will be easy to modify the historical context to adapt it to other places. The war resolution will not feature an action phase, this way it will make it easy to play online from a smartphone/PC/etc and be able to quit anytime. The war gameplay may borrow ideas from the game of go with a hint of Diplomacy.
 
 # Unit tests
 To run the unit tests automatically in VS Code, run the following command in a Terminal: dotnet watch --project .\Tests\Kerglerec.Tests\ test
