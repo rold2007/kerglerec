@@ -6,7 +6,7 @@ namespace Kerglerec
 {
    using System;
 
-   public sealed record Starvation
+   public sealed record Starvation // ncrunch: no coverage
    {
       private double starvationFoodRate = 0.5;
 

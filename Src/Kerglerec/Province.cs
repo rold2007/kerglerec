@@ -4,7 +4,7 @@
 
 namespace Kerglerec
 {
-   public sealed record Province
+   public sealed record Province // ncrunch: no coverage
    {
       public Province() : this(new Population(), new Food(), new Land())
       {

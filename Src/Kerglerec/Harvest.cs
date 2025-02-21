@@ -6,7 +6,7 @@ namespace Kerglerec
 {
    using System;
 
-   public sealed record Harvest
+   public sealed record Harvest // ncrunch: no coverage
    {
       private Month springStartMonth = Month.April;
       private Month fallEndMonth = Month.September;

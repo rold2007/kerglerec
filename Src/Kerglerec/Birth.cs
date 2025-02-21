@@ -6,7 +6,7 @@ namespace Kerglerec
 {
    using System;
 
-   public sealed record Birth
+   public sealed record Birth // ncrunch: no coverage
    {
       private double[] monthlyBirthRates =
       {

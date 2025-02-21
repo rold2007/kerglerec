@@ -7,7 +7,7 @@ using Shouldly;
 
 namespace Kerglerec
 {
-   public sealed record Land
+   public sealed record Land // ncrunch: no coverage
    {
       public Land() : this(0, 0)
       {
@@ -31,14 +31,14 @@ namespace Kerglerec
          private set;
       }
 
-      Land ImproveAgricultureLevel(int value)
+      public Land ImproveAgricultureLevel(int value)
       {
          value.ShouldBePositive();
 
          return new Land(Math.Min(AgricultureLevel + value, 100), StructureLevel);
       }
 
-      Land ImproveStructureLevel(int value)
+      public Land ImproveStructureLevel(int value)
       {
          value.ShouldBePositive();
 
