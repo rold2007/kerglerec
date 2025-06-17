@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+
     <AssemblyName>Kerglerec.Tests</AssemblyName>
     <IsPackable>false</IsPackable>
     <LangVersion>default</LangVersion>
